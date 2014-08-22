@@ -196,4 +196,39 @@
       update_date = #{updateDate,jdbcType=TIMESTAMP}
     where id = #{id,jdbcType=INTEGER}
   </update>
+  
+<!-- 以上是为了节约开发时间，使用MyBatisGenerator生成的代码-->
+<!-- 以下是针对不足功能，添加的代码  -->
+  
+    <sql id="where">
+    	where b.is_delete=0
+    	<if test="name!=null and name!=''">
+    		and b.name like CONCAT(#{name},'%') 
+    	</if>
+    </sql>
+    <sql id="orderby">
+    	order by b.id desc 
+    </sql>
+    <select id="getBrandTotalBySearch" parameterType="com.cl.commodity.model.base.BrandSearchModel" resultType="java.lang.Integer">
+    	select count(0) 
+    	from c_brand b
+    	<include refid="where"/>
+    </select>
+    <!-- 这个方法虽然没有显示的书写limit，但是也是分页的，利用的MyBatis的RowBounds -->
+    <select id="getBrandListBySearch" parameterType="com.cl.commodity.model.base.BrandSearchModel" resultMap="BaseResultMap">
+	    select 
+	    <include refid="Base_Column_List" />
+	    from c_brand b
+        <include refid="where"/>
+        <include refid="orderby"/>
+    </select>
+    <select id="isUsed" parameterType="java.lang.Integer" resultType="java.lang.Boolean">
+    	select exists(select 1 from c_commodity c where c.brand_id=#{brandId} limit 1);
+    </select>
+    <select id="getBrandList" resultType="java.lang.Integer">
+	    select 
+	    <include refid="Base_Column_List" />
+	    from c_brand b
+	    where b.is_delete=0
+    </select>    
 </mapper>
