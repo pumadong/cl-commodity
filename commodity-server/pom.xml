@@ -20,6 +20,11 @@
 		<!-- Cl -->
 		<dependency>
 			<groupId>cl</groupId>
+			<artifactId>privilege-api</artifactId>
+			<version>1.0.0-SNAPSHOT</version>
+		</dependency>			
+		<dependency>
+			<groupId>cl</groupId>
 			<artifactId>commodity-data</artifactId>
 			<version>1.0.0-SNAPSHOT</version>
 		</dependency>

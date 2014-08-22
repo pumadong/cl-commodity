@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cl.commodity.mapper.commodity.CommodityMapper" >
+  <resultMap id="BaseResultMap" type="com.cl.commodity.model.commodity.Commodity" >
+    <id column="no" property="no" jdbcType="VARCHAR" />
+    <result column="sno" property="sno" jdbcType="VARCHAR" />
+    <result column="style_no" property="styleNo" jdbcType="VARCHAR" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="brand_id" property="brandId" jdbcType="INTEGER" />
+    <result column="category_id" property="categoryId" jdbcType="INTEGER" />
+    <result column="supplier_id" property="supplierId" jdbcType="INTEGER" />
+    <result column="sizechart_id" property="sizechartId" jdbcType="INTEGER" />
+    <result column="color" property="color" jdbcType="VARCHAR" />
+    <result column="pic_color" property="picColor" jdbcType="VARCHAR" />
+    <result column="pic_ver" property="picVer" jdbcType="INTEGER" />
+    <result column="cost_price" property="costPrice" jdbcType="DECIMAL" />
+    <result column="sale_price" property="salePrice" jdbcType="DECIMAL" />
+    <result column="market_price" property="marketPrice" jdbcType="DECIMAL" />
+    <result column="status" property="status" jdbcType="INTEGER" />
+    <result column="pic_flag" property="picFlag" jdbcType="INTEGER" />
+    <result column="is_delete" property="isDelete" jdbcType="BIT" />
+    <result column="create_person" property="createPerson" jdbcType="VARCHAR" />
+    <result column="create_date" property="createDate" jdbcType="TIMESTAMP" />
+    <result column="update_person" property="updatePerson" jdbcType="VARCHAR" />
+    <result column="update_date" property="updateDate" jdbcType="TIMESTAMP" />
+    <result column="line_id" property="lineId" jdbcType="BIGINT" />
+    <result column="for_order" property="forOrder" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    no, sno, style_no, name, brand_id, category_id, supplier_id, sizechart_id, color, 
+    pic_color, pic_ver, cost_price, sale_price, market_price, status, pic_flag, is_delete, 
+    create_person, create_date, update_person, update_date, line_id, for_order
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from c_commodity
+    where no = #{no,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from c_commodity
+    where no = #{no,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.cl.commodity.model.commodity.Commodity" >
+    insert into c_commodity (no, sno, style_no, 
+      name, brand_id, category_id, 
+      supplier_id, sizechart_id, color, 
+      pic_color, pic_ver, cost_price, 
+      sale_price, market_price, status, 
+      pic_flag, is_delete, create_person, 
+      create_date, update_person, update_date, 
+      line_id, for_order)
+    values (#{no,jdbcType=VARCHAR}, #{sno,jdbcType=VARCHAR}, #{styleNo,jdbcType=VARCHAR}, 
+      #{name,jdbcType=VARCHAR}, #{brandId,jdbcType=INTEGER}, #{categoryId,jdbcType=INTEGER}, 
+      #{supplierId,jdbcType=INTEGER}, #{sizechartId,jdbcType=INTEGER}, #{color,jdbcType=VARCHAR}, 
+      #{picColor,jdbcType=VARCHAR}, #{picVer,jdbcType=INTEGER}, #{costPrice,jdbcType=DECIMAL}, 
+      #{salePrice,jdbcType=DECIMAL}, #{marketPrice,jdbcType=DECIMAL}, #{status,jdbcType=INTEGER}, 
+      #{picFlag,jdbcType=INTEGER}, #{isDelete,jdbcType=BIT}, #{createPerson,jdbcType=VARCHAR}, 
+      #{createDate,jdbcType=TIMESTAMP}, #{updatePerson,jdbcType=VARCHAR}, #{updateDate,jdbcType=TIMESTAMP}, 
+      #{lineId,jdbcType=BIGINT}, #{forOrder,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.cl.commodity.model.commodity.Commodity" >
+    insert into c_commodity
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="no != null" >
+        no,
+      </if>
+      <if test="sno != null" >
+        sno,
+      </if>
+      <if test="styleNo != null" >
+        style_no,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="brandId != null" >
+        brand_id,
+      </if>
+      <if test="categoryId != null" >
+        category_id,
+      </if>
+      <if test="supplierId != null" >
+        supplier_id,
+      </if>
+      <if test="sizechartId != null" >
+        sizechart_id,
+      </if>
+      <if test="color != null" >
+        color,
+      </if>
+      <if test="picColor != null" >
+        pic_color,
+      </if>
+      <if test="picVer != null" >
+        pic_ver,
+      </if>
+      <if test="costPrice != null" >
+        cost_price,
+      </if>
+      <if test="salePrice != null" >
+        sale_price,
+      </if>
+      <if test="marketPrice != null" >
+        market_price,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="picFlag != null" >
+        pic_flag,
+      </if>
+      <if test="isDelete != null" >
+        is_delete,
+      </if>
+      <if test="createPerson != null" >
+        create_person,
+      </if>
+      <if test="createDate != null" >
+        create_date,
+      </if>
+      <if test="updatePerson != null" >
+        update_person,
+      </if>
+      <if test="updateDate != null" >
+        update_date,
+      </if>
+      <if test="lineId != null" >
+        line_id,
+      </if>
+      <if test="forOrder != null" >
+        for_order,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="no != null" >
+        #{no,jdbcType=VARCHAR},
+      </if>
+      <if test="sno != null" >
+        #{sno,jdbcType=VARCHAR},
+      </if>
+      <if test="styleNo != null" >
+        #{styleNo,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="brandId != null" >
+        #{brandId,jdbcType=INTEGER},
+      </if>
+      <if test="categoryId != null" >
+        #{categoryId,jdbcType=INTEGER},
+      </if>
+      <if test="supplierId != null" >
+        #{supplierId,jdbcType=INTEGER},
+      </if>
+      <if test="sizechartId != null" >
+        #{sizechartId,jdbcType=INTEGER},
+      </if>
+      <if test="color != null" >
+        #{color,jdbcType=VARCHAR},
+      </if>
+      <if test="picColor != null" >
+        #{picColor,jdbcType=VARCHAR},
+      </if>
+      <if test="picVer != null" >
+        #{picVer,jdbcType=INTEGER},
+      </if>
+      <if test="costPrice != null" >
+        #{costPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="salePrice != null" >
+        #{salePrice,jdbcType=DECIMAL},
+      </if>
+      <if test="marketPrice != null" >
+        #{marketPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="picFlag != null" >
+        #{picFlag,jdbcType=INTEGER},
+      </if>
+      <if test="isDelete != null" >
+        #{isDelete,jdbcType=BIT},
+      </if>
+      <if test="createPerson != null" >
+        #{createPerson,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null" >
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatePerson != null" >
+        #{updatePerson,jdbcType=VARCHAR},
+      </if>
+      <if test="updateDate != null" >
+        #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lineId != null" >
+        #{lineId,jdbcType=BIGINT},
+      </if>
+      <if test="forOrder != null" >
+        #{forOrder,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.cl.commodity.model.commodity.Commodity" >
+    update c_commodity
+    <set >
+      <if test="sno != null" >
+        sno = #{sno,jdbcType=VARCHAR},
+      </if>
+      <if test="styleNo != null" >
+        style_no = #{styleNo,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="brandId != null" >
+        brand_id = #{brandId,jdbcType=INTEGER},
+      </if>
+      <if test="categoryId != null" >
+        category_id = #{categoryId,jdbcType=INTEGER},
+      </if>
+      <if test="supplierId != null" >
+        supplier_id = #{supplierId,jdbcType=INTEGER},
+      </if>
+      <if test="sizechartId != null" >
+        sizechart_id = #{sizechartId,jdbcType=INTEGER},
+      </if>
+      <if test="color != null" >
+        color = #{color,jdbcType=VARCHAR},
+      </if>
+      <if test="picColor != null" >
+        pic_color = #{picColor,jdbcType=VARCHAR},
+      </if>
+      <if test="picVer != null" >
+        pic_ver = #{picVer,jdbcType=INTEGER},
+      </if>
+      <if test="costPrice != null" >
+        cost_price = #{costPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="salePrice != null" >
+        sale_price = #{salePrice,jdbcType=DECIMAL},
+      </if>
+      <if test="marketPrice != null" >
+        market_price = #{marketPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="picFlag != null" >
+        pic_flag = #{picFlag,jdbcType=INTEGER},
+      </if>
+      <if test="isDelete != null" >
+        is_delete = #{isDelete,jdbcType=BIT},
+      </if>
+      <if test="createPerson != null" >
+        create_person = #{createPerson,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null" >
+        create_date = #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatePerson != null" >
+        update_person = #{updatePerson,jdbcType=VARCHAR},
+      </if>
+      <if test="updateDate != null" >
+        update_date = #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lineId != null" >
+        line_id = #{lineId,jdbcType=BIGINT},
+      </if>
+      <if test="forOrder != null" >
+        for_order = #{forOrder,jdbcType=INTEGER},
+      </if>
+    </set>
+    where no = #{no,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.cl.commodity.model.commodity.Commodity" >
+    update c_commodity
+    set sno = #{sno,jdbcType=VARCHAR},
+      style_no = #{styleNo,jdbcType=VARCHAR},
+      name = #{name,jdbcType=VARCHAR},
+      brand_id = #{brandId,jdbcType=INTEGER},
+      category_id = #{categoryId,jdbcType=INTEGER},
+      supplier_id = #{supplierId,jdbcType=INTEGER},
+      sizechart_id = #{sizechartId,jdbcType=INTEGER},
+      color = #{color,jdbcType=VARCHAR},
+      pic_color = #{picColor,jdbcType=VARCHAR},
+      pic_ver = #{picVer,jdbcType=INTEGER},
+      cost_price = #{costPrice,jdbcType=DECIMAL},
+      sale_price = #{salePrice,jdbcType=DECIMAL},
+      market_price = #{marketPrice,jdbcType=DECIMAL},
+      status = #{status,jdbcType=INTEGER},
+      pic_flag = #{picFlag,jdbcType=INTEGER},
+      is_delete = #{isDelete,jdbcType=BIT},
+      create_person = #{createPerson,jdbcType=VARCHAR},
+      create_date = #{createDate,jdbcType=TIMESTAMP},
+      update_person = #{updatePerson,jdbcType=VARCHAR},
+      update_date = #{updateDate,jdbcType=TIMESTAMP},
+      line_id = #{lineId,jdbcType=BIGINT},
+      for_order = #{forOrder,jdbcType=INTEGER}
+    where no = #{no,jdbcType=VARCHAR}
+  </update>
+</mapper>

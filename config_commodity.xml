@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<!DOCTYPE generatorConfiguration  
+  PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"  
+  "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">  
+  
+<generatorConfiguration>
+
+	<!-- classPathEntry:数据库的JDBC驱动,换成你自己的驱动位置 --> 
+    <classPathEntry location="mysql-connector-java-5.1.24-bin.jar" />  
+  
+    <context id="DB2Tables" targetRuntime="MyBatis3">  
+        <commentGenerator>
+			<!-- 是否去除自动生成的注释 true：是 ： false:否 -->  
+			<property name="suppressAllComments" value="true" />
+			<!-- 此属性用于指定在生成的注释是否将包括MBG代时间戳 -->
+            <property name="suppressDate" value="true" />
+        </commentGenerator>  
+  
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://localhost:3306/commodity" userId="root" password="123456">  
+        </jdbcConnection>  
+  
+        <javaTypeResolver>  
+            <property name="forceBigDecimals" value="false" />  
+        </javaTypeResolver>
+
+		<!-- targetProject:自动生成代码的位置 -->
+  
+		<!-- 生成Model -->
+        <javaModelGenerator targetPackage="com.cl.commodity.model" targetProject="CreateResult">  
+			<!-- enableSubPackages:是否让schema作为包的后缀 -->
+            <property name="enableSubPackages" value="true" />
+			<!-- 是否针对string类型的字段在set的时候进行trim调用 -->
+            <property name="trimStrings" value="false" />  
+        </javaModelGenerator>  
+  
+		<!-- 生成Mapper.xml -->
+        <sqlMapGenerator targetPackage="com.cl.commodity.mapper" targetProject="CreateResult">  
+            <property name="enableSubPackages" value="true" />
+
+			<property name="enableDeleteByExample" value="false" />
+			<property name="enableCountByExample" value="false" />
+			<property name="enableUpdateByExample" value="false" />
+			<property name="enableSelectByExample" value="false" />
+			<property name="selectByExampleQueryId" value="false" />
+        </sqlMapGenerator>  
+  
+		<!-- 生成Mapper.java -->
+        <javaClientGenerator targetPackage="com.cl.commodity.mapper" targetProject="CreateResult" type="XMLMAPPER">  
+            <property name="enableSubPackages" value="true" />  
+        </javaClientGenerator>
+  
+		<!--<ignoreColumn column="被忽略的字段的名字" />-->
+
+        <table tableName="c_brand" domainObjectName="Brand" enableDeleteByExample = "false" enableCountByExample = "false" enableUpdateByExample = "false"			enableSelectByExample = "false" selectByExampleQueryId = "false" />	
+		<table tableName="c_category" domainObjectName="Category" enableDeleteByExample = "false" enableCountByExample = "false" enableUpdateByExample = "false"			enableSelectByExample = "false" selectByExampleQueryId = "false" />	
+		<table tableName="c_category_brand" domainObjectName="CategoryBrandRef" enableDeleteByExample = "false" enableCountByExample = "false" enableUpdateByExample = "false"			enableSelectByExample = "false" selectByExampleQueryId = "false" />	
+		<table tableName="c_prop_item" domainObjectName="PropItem" enableDeleteByExample = "false" enableCountByExample = "false" enableUpdateByExample = "false"			enableSelectByExample = "false" selectByExampleQueryId = "false" />	
+		<table tableName="c_prop_value" domainObjectName="PropValue" enableDeleteByExample = "false" enableCountByExample = "false" enableUpdateByExample = "false"			enableSelectByExample = "false" selectByExampleQueryId = "false" />	
+		<table tableName="c_category_prop_item" domainObjectName="CategoryPropItemRef" enableDeleteByExample = "false" enableCountByExample = "false" enableUpdateByExample = "false"			enableSelectByExample = "false" selectByExampleQueryId = "false" />	
+		<table tableName="c_category_prop_value" domainObjectName="CategoryPropValueRef" enableDeleteByExample = "false" enableCountByExample = "false" enableUpdateByExample = "false"			enableSelectByExample = "false" selectByExampleQueryId = "false" />	
+		<table tableName="c_commodity" domainObjectName="Commodity" enableDeleteByExample = "false" enableCountByExample = "false" enableUpdateByExample = "false"			enableSelectByExample = "false" selectByExampleQueryId = "false" />	
+		<table tableName="c_product" domainObjectName="Product" enableDeleteByExample = "false" enableCountByExample = "false" enableUpdateByExample = "false"			enableSelectByExample = "false" selectByExampleQueryId = "false" />	
+		<table tableName="c_commodity_picture" domainObjectName="CommodityPicture" enableDeleteByExample = "false" enableCountByExample = "false" enableUpdateByExample = "false"			enableSelectByExample = "false" selectByExampleQueryId = "false" />	
+		<table tableName="c_commodity_prop" domainObjectName="CommodityProp" enableDeleteByExample = "false" enableCountByExample = "false" enableUpdateByExample = "false"			enableSelectByExample = "false" selectByExampleQueryId = "false" />	
+		<table tableName="c_commodity_log" domainObjectName="CommodityLog" enableDeleteByExample = "false" enableCountByExample = "false" enableUpdateByExample = "false"			enableSelectByExample = "false" selectByExampleQueryId = "false" />	
+		<table tableName="c_commodity_price_log" domainObjectName="CommodityPriceLog" enableDeleteByExample = "false" enableCountByExample = "false" enableUpdateByExample = "false"			enableSelectByExample = "false" selectByExampleQueryId = "false" />	
+		<table tableName="c_sizechart" domainObjectName="Sizechart" enableDeleteByExample = "false" enableCountByExample = "false" enableUpdateByExample = "false"			enableSelectByExample = "false" selectByExampleQueryId = "false" />	
+		<table tableName="c_sizechart_category_brand" domainObjectName="SizechartCategoryBrandRef" enableDeleteByExample = "false" enableCountByExample = "false" enableUpdateByExample = "false"			enableSelectByExample = "false" selectByExampleQueryId = "false" />	
+		<table tableName="c_dictionary" domainObjectName="Dictionary" enableDeleteByExample = "false" enableCountByExample = "false" enableUpdateByExample = "false"			enableSelectByExample = "false" selectByExampleQueryId = "false" />
+  
+    </context>  
+</generatorConfiguration>  
