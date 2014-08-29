@@ -18,7 +18,7 @@
 	<dubbo:registry protocol="zookeeper" address="${dubbo.registry.address.client}" id="zookeeperClient" />
 
     <!-- 用dubbo协议在20800端口暴露服务 -->
-    <dubbo:protocol name="dubbo" port="20800" dispather="all" threadpool="cached" threads="5000"/>
+    <dubbo:protocol name="dubbo" port="30010" dispather="all" threadpool="cached" threads="5000"/>
     <dubbo:service interface="com.cl.commodity.api.ICommodityBaseApiService" ref="commodityBaseApiServiceImpl"
                    version="1.0" registry="zookeeperService" owner="cl-commodity"/>
  
@@ -26,6 +26,6 @@
     <bean id="commodityBaseApiServiceImpl" class="com.cl.commodity.api.impl.CommodityBaseApiServiceImpl"/>
                  
     <!--提供hessian，用于跨语言支持:jboss端口 contextpath，必须和包启动的上下文根+servelt的路径一致-->
-    <dubbo:protocol name="hessian" contextpath="commodity/hessian" port="20900" server="servlet" threadpool="cached"
-                    threads="5000"/>
+    <!-- <dubbo:protocol name="hessian" contextpath="commodity/hessian" port="30011" server="servlet" threadpool="cached"
+                    threads="5000"/> -->
 </beans>
