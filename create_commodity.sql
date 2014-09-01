@@ -181,7 +181,6 @@ CREATE TABLE `c_commodity` (
 `update_person`  varchar(30) NOT NULL DEFAULT '' COMMENT '更新人' ,
 `update_date`  datetime NOT NULL COMMENT '更新时间' ,
 `line_id`  bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '自增ID，用于其它系统同步等特殊用途' ,
-`for_order`  int(4) UNSIGNED NOT NULL DEFAULT 0 COMMENT '商品可订量' ,
 PRIMARY KEY (`no`) ,
 INDEX `idx_commodity_supplier_id` (`supplier_id`) USING BTREE ,
 INDEX `idx_commodity_brand_id` (`brand_id`) USING BTREE ,
