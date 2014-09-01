@@ -12,7 +12,7 @@ https://github.com/pumadong/cl-privilege
 
 商品中心，是一个核心系统，会和其他系统都有交集，比如：网站、订单、采购、仓储、配送...,所以独立出来，做一个单独的商品中心，有人负责，还是很有必要的。
 
-商品状态:1.新建（待进货）、2.待售（入库后）、3.上架（在售）、4.下架（停售），将来有审核的话用-状态
+商品状态:0.新建（待进货）、1.待售（入库后）、2.上架（在售）、3.下架（停售），将来有审核的话用-状态
 
 术语：
 
@@ -44,7 +44,3 @@ java -jar mybatis-generator-core-1.3.1.jar -configfile config_commodity.xml -ove
 生成时需要把mybatis-generator-core-1.3.1.jar、mysql-connector-java-5.1.24-bin.jar、config_privilege.xml放到一个目录下，生成的相关类和XML会放置到CreateResult文件夹下面。
 
 jar下载地址：http://pan.baidu.com/s/1qW98L0C
-
-四、
-
-1.新建（待进货）、2.待售（入库后）、3.上架（在售）、4.下架（停售），将来有审核的话用-状态
