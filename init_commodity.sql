@@ -1,10 +1,10 @@
 ﻿#数据初始化-商品字典表
 insert into `c_dictionary`(`group`,`code`,`name`,sort_no,create_person,create_date)
 values
-('CommodityStatus','1','新建（待进货）',1,'system',now()),
-('CommodityStatus','2','待售（入库后）',2,'system',now()),
-('CommodityStatus','3','上架（在售）',3,'system',now()),
-('CommodityStatus','4','3.下架（停售）',4,'system',now()),
+('CommodityStatus','0','新建（待进货）',1,'system',now()),
+('CommodityStatus','1','待售（入库后）',2,'system',now()),
+('CommodityStatus','2','上架（在售）',3,'system',now()),
+('CommodityStatus','3','下架（停售）',4,'system',now()),
 
 ('CommodityLog','1','新增商品',10,'system',now()),
 ('CommodityLog','2','修改商品',20,'system',now()),
