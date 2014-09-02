@@ -1,35 +1,35 @@
 ﻿#数据初始化-商品字典表
 insert into `c_dictionary`(`group`,`code`,`name`,sort_no,create_person,create_date)
 values
-('CommodityStatus','0','新建（待进货）',1,'system',now()),
-('CommodityStatus','1','待售（入库后）',2,'system',now()),
-('CommodityStatus','2','上架（在售）',3,'system',now()),
-('CommodityStatus','3','下架（停售）',4,'system',now()),
+('commodity_status','0','新建（待进货）',1,'system',now()),
+('commodity_status','1','待售（入库后）',2,'system',now()),
+('commodity_status','2','上架（在售）',3,'system',now()),
+('commodity_status','3','下架（停售）',4,'system',now()),
 
-('CommodityLog','1','新增商品',10,'system',now()),
-('CommodityLog','2','修改商品',20,'system',now()),
-('CommodityLog','3','图片上传完整',30,'system',now()),
-('CommodityLog','4','图片删除',40,'system',now()),
-('CommodityLog','5','图片不再完整',50,'system',now()),
-('CommodityLog','6','商品销售',60,'system',now()),
-('CommodityLog','7','商品停售',70,'system',now()),
-('CommodityLog','8','修改价格',80,'system',now()),
-('CommodityLog','9','删除商品',90,'system',now()),
+('commodity_log','1','新增商品',10,'system',now()),
+('commodity_log','2','修改商品',20,'system',now()),
+('commodity_log','3','图片上传完整',30,'system',now()),
+('commodity_log','4','图片删除',40,'system',now()),
+('commodity_log','5','图片不再完整',50,'system',now()),
+('commodity_log','6','商品销售',60,'system',now()),
+('commodity_log','7','商品停售',70,'system',now()),
+('commodity_log','8','修改价格',80,'system',now()),
+('commodity_log','9','删除商品',90,'system',now()),
 
-('CommodityPicType','o','原图',10,'system',now()),
-('CommodityPicType','l','大图',10,'system',now()),
-('CommodityPicType','m','中图',10,'system',now()),
-('CommodityPicType','s','小图',10,'system',now()),
-('CommodityPicType','t','微图',10,'system',now()),
+('commodity_pictype','o','原图',10,'system',now()),
+('commodity_pictype','l','大图',10,'system',now()),
+('commodity_pictype','m','中图',10,'system',now()),
+('commodity_pictype','s','小图',10,'system',now()),
+('commodity_pictype','t','微图',10,'system',now()),
 
-('PriceLog','1','成本价',10,'system',now()),
-('PriceLog','2','销售价',20,'system',now()),
-('PriceLog','3','市场价',30,'system',now()),
+('price_log','1','成本价',10,'system',now()),
+('price_log','2','销售价',20,'system',now()),
+('price_log','3','市场价',30,'system',now()),
 
-('SizechartLimit','1','不限制',10,'system',now()),
-('SizechartLimit','2','限制分类',20,'system',now()),
-('SizechartLimit','3','限制品牌',30,'system',now()),
-('SizechartLimit','4','限制分类和品牌',40,'system',now())
+('sizechart_limit','1','不限制',10,'system',now()),
+('sizechart_limit','2','限制分类',20,'system',now()),
+('sizechart_limit','3','限制品牌',30,'system',now()),
+('sizechart_limit','4','限制分类和品牌',40,'system',now())
 ;
 
 #数据初始化-品牌表
