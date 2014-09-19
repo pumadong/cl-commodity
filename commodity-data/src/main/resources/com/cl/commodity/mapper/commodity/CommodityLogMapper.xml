@@ -4,13 +4,13 @@
   <resultMap id="BaseResultMap" type="com.cl.commodity.model.commodity.CommodityLog" >
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="commodity_no" property="commodityNo" jdbcType="VARCHAR" />
-    <result column="type" property="type" jdbcType="INTEGER" />
+    <result column="log_type_id" property="logTypeId" jdbcType="TINYINT" />
     <result column="remark" property="remark" jdbcType="VARCHAR" />
     <result column="create_person" property="createPerson" jdbcType="VARCHAR" />
     <result column="create_date" property="createDate" jdbcType="TIMESTAMP" />
   </resultMap>
   <sql id="Base_Column_List" >
-    id, commodity_no, type, remark, create_person, create_date
+    id, commodity_no, log_type_id, remark, create_person, create_date
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
@@ -23,10 +23,10 @@
     where id = #{id,jdbcType=INTEGER}
   </delete>
   <insert id="insert" parameterType="com.cl.commodity.model.commodity.CommodityLog" >
-    insert into c_commodity_log (id, commodity_no, type, 
+    insert into c_commodity_log (id, commodity_no, log_type_id, 
       remark, create_person, create_date
       )
-    values (#{id,jdbcType=INTEGER}, #{commodityNo,jdbcType=VARCHAR}, #{type,jdbcType=INTEGER}, 
+    values (#{id,jdbcType=INTEGER}, #{commodityNo,jdbcType=VARCHAR}, #{logTypeId,jdbcType=TINYINT}, 
       #{remark,jdbcType=VARCHAR}, #{createPerson,jdbcType=VARCHAR}, #{createDate,jdbcType=TIMESTAMP}
       )
   </insert>
@@ -39,8 +39,8 @@
       <if test="commodityNo != null" >
         commodity_no,
       </if>
-      <if test="type != null" >
-        type,
+      <if test="logTypeId != null" >
+        log_type_id,
       </if>
       <if test="remark != null" >
         remark,
@@ -59,8 +59,8 @@
       <if test="commodityNo != null" >
         #{commodityNo,jdbcType=VARCHAR},
       </if>
-      <if test="type != null" >
-        #{type,jdbcType=INTEGER},
+      <if test="logTypeId != null" >
+        #{logTypeId,jdbcType=TINYINT},
       </if>
       <if test="remark != null" >
         #{remark,jdbcType=VARCHAR},
@@ -79,8 +79,8 @@
       <if test="commodityNo != null" >
         commodity_no = #{commodityNo,jdbcType=VARCHAR},
       </if>
-      <if test="type != null" >
-        type = #{type,jdbcType=INTEGER},
+      <if test="logTypeId != null" >
+        log_type_id = #{logTypeId,jdbcType=TINYINT},
       </if>
       <if test="remark != null" >
         remark = #{remark,jdbcType=VARCHAR},
@@ -97,7 +97,7 @@
   <update id="updateByPrimaryKey" parameterType="com.cl.commodity.model.commodity.CommodityLog" >
     update c_commodity_log
     set commodity_no = #{commodityNo,jdbcType=VARCHAR},
-      type = #{type,jdbcType=INTEGER},
+      log_type_id = #{logTypeId,jdbcType=TINYINT},
       remark = #{remark,jdbcType=VARCHAR},
       create_person = #{createPerson,jdbcType=VARCHAR},
       create_date = #{createDate,jdbcType=TIMESTAMP}

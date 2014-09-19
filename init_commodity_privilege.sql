@@ -1,7 +1,7 @@
 ﻿delete from `p_module` where name='商品中心';
 INSERT INTO `p_module`(id,name,flag,url,sort_no,create_person,create_date,update_person,update_date) 
 VALUES
-(3,'商品中心','c','http://127.0.0.1:10005/commodity-server',30,'system',NOW(),'system',NOW())
+(3,'商品中心','c','http://127.0.0.1:10006/commodity-server',30,'system',NOW(),'system',NOW())
 ;
 
 

@@ -7,7 +7,7 @@ public class CommodityLog {
 
     private String commodityNo;
 
-    private Integer type;
+    private Byte logTypeId;
 
     private String remark;
 
@@ -31,12 +31,12 @@ public class CommodityLog {
         this.commodityNo = commodityNo;
     }
 
-    public Integer getType() {
-        return type;
+    public Byte getLogTypeId() {
+        return logTypeId;
     }
 
-    public void setType(Integer type) {
-        this.type = type;
+    public void setLogTypeId(Byte logTypeId) {
+        this.logTypeId = logTypeId;
     }
 
     public String getRemark() {

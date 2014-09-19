@@ -32,9 +32,9 @@ public class Commodity {
 
     private BigDecimal marketPrice;
 
-    private Integer status;
+    private Byte status;
 
-    private Integer picFlag;
+    private Boolean isPictureFinish;
 
     private Boolean isDelete;
 
@@ -46,9 +46,7 @@ public class Commodity {
 
     private Date updateDate;
 
-    private Long lineId;
-
-    private Integer forOrder;
+    private Integer lineId;
 
     public String getNo() {
         return no;
@@ -162,20 +160,20 @@ public class Commodity {
         this.marketPrice = marketPrice;
     }
 
-    public Integer getStatus() {
+    public Byte getStatus() {
         return status;
     }
 
-    public void setStatus(Integer status) {
+    public void setStatus(Byte status) {
         this.status = status;
     }
 
-    public Integer getPicFlag() {
-        return picFlag;
+    public Boolean getIsPictureFinish() {
+        return isPictureFinish;
     }
 
-    public void setPicFlag(Integer picFlag) {
-        this.picFlag = picFlag;
+    public void setIsPictureFinish(Boolean isPictureFinish) {
+        this.isPictureFinish = isPictureFinish;
     }
 
     public Boolean getIsDelete() {
@@ -218,19 +216,11 @@ public class Commodity {
         this.updateDate = updateDate;
     }
 
-    public Long getLineId() {
+    public Integer getLineId() {
         return lineId;
     }
 
-    public void setLineId(Long lineId) {
+    public void setLineId(Integer lineId) {
         this.lineId = lineId;
-    }
-
-    public Integer getForOrder() {
-        return forOrder;
-    }
-
-    public void setForOrder(Integer forOrder) {
-        this.forOrder = forOrder;
     }
 }

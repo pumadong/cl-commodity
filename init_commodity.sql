@@ -1,51 +1,52 @@
 ﻿#数据初始化-商品字典表
 insert into `c_dictionary`(`group`,`code`,`name`,sort_no,create_person,create_date)
 values
-('commodity_status','0','新建（待进货）',1,'system',now()),
-('commodity_status','1','待售（入库后）',2,'system',now()),
-('commodity_status','2','上架（在售）',3,'system',now()),
-('commodity_status','3','下架（停售）',4,'system',now()),
+('commodity_status',0,'新建（待进货）',1,'system',now()),
+('commodity_status',1,'待售（入库后）',2,'system',now()),
+('commodity_status',2,'上架（在售）',3,'system',now()),
+('commodity_status',3,'下架（停售）',4,'system',now()),
 
-('commodity_log','1','新增商品',10,'system',now()),
-('commodity_log','2','修改商品',20,'system',now()),
-('commodity_log','3','图片上传完整',30,'system',now()),
-('commodity_log','4','图片删除',40,'system',now()),
-('commodity_log','5','图片不再完整',50,'system',now()),
-('commodity_log','6','商品销售',60,'system',now()),
-('commodity_log','7','商品停售',70,'system',now()),
-('commodity_log','8','修改价格',80,'system',now()),
-('commodity_log','9','删除商品',90,'system',now()),
+('commodity_log',1,'新增商品',10,'system',now()),
+('commodity_log',2,'修改商品',20,'system',now()),
+('commodity_log',3,'图片上传完整',30,'system',now()),
+('commodity_log',4,'图片删除',40,'system',now()),
+('commodity_log',5,'图片不再完整',50,'system',now()),
+('commodity_log',6,'商品销售',60,'system',now()),
+('commodity_log',7,'商品停售',70,'system',now()),
+('commodity_log',8,'修改价格',80,'system',now()),
+('commodity_log',9,'删除商品',90,'system',now()),
 
-('commodity_pictype','o','原图',10,'system',now()),
-('commodity_pictype','l','大图',10,'system',now()),
-('commodity_pictype','m','中图',10,'system',now()),
-('commodity_pictype','s','小图',10,'system',now()),
-('commodity_pictype','t','微图',10,'system',now()),
+('commodity_pictype',1,'原图-o',1,'system',now()),	#o
+('commodity_pictype',2,'大图-l',2,'system',now()),	#l
+('commodity_pictype',3,'中图-m',3,'system',now()),	#m
+('commodity_pictype',4,'小图-s',4,'system',now()),	#s
+('commodity_pictype',5,'微图-t',5,'system',now()),	#t
+('commodity_pictype',6,'宝贝描述图-b',6,'system',now()),	#b
 
-('price_log','1','成本价',10,'system',now()),
-('price_log','2','销售价',20,'system',now()),
-('price_log','3','市场价',30,'system',now()),
+('price_log',1,'成本价',10,'system',now()),
+('price_log',2,'销售价',20,'system',now()),
+('price_log',3,'市场价',30,'system',now()),
 
-('sizechart_limit','1','不限制',10,'system',now()),
-('sizechart_limit','2','限制分类',20,'system',now()),
-('sizechart_limit','3','限制品牌',30,'system',now()),
-('sizechart_limit','4','限制分类和品牌',40,'system',now())
+('sizechart_limit',1,'不限制',10,'system',now()),
+('sizechart_limit',2,'限制分类',20,'system',now()),
+('sizechart_limit',3,'限制品牌',30,'system',now()),
+('sizechart_limit',4,'限制分类和品牌',40,'system',now())
 ;
 
 #数据初始化-品牌表
 truncate table c_brand;
 insert into c_brand(id,name,english_name,website,pic_large,pic_middle,pic_small,letter,sort_no,is_delete,create_person,create_date,update_person,update_date)
 values
-(1,'百丽','belle','http://www.belle.com','brand_1_l.jpg','brand_1_m.jpg','brand_1_s.jpg','B',1,0,'system',NOW(),'system',NOW()),
-(2,'天美意','teenmix','http://www.teenmix.com.cn','brand_2_l.jpg','brand_2_m.jpg','brand_2_s.jpg','T',2,0,'system',NOW(),'system',NOW()),
-(3,'他她','tata','http://www.tatashoes.com.cn','brand_3_l.jpg','brand_3_m.jpg','brand_3_s.jpg','T',3,0,'system',NOW(),'system',NOW()),
-(4,'思加图','staccato','http://www.staccato.com','brand_4_l.jpg','brand_4_m.jpg','brand_4_s.jpg','S',4,0,'system',NOW(),'system',NOW()),
-(5,'百思图','basto','http://www.basto.com.cn','brand_5_l.jpg','brand_5_m.jpg','brand_5_s.jpg','T',5,0,'system',NOW(),'system',NOW()),
-(6,'茵奈儿','innet','','brand_6_l.jpg','brand_6_m.jpg','brand_6_s.jpg','T',6,0,'system',NOW(),'system',NOW()),
-(7,'真美诗','joypeace','http://www.joypeace.com','brand_7_l.jpg','brand_7_m.jpg','brand_7_s.jpg','T',7,0,'system',NOW(),'system',NOW()),
-(8,'耐克','nike','','brand_8_l.jpg','brand_8_m.jpg','brand_8_s.jpg','T',8,0,'system',NOW(),'system',NOW()),
-(9,'阿迪达斯','adidas','','brand_9_l.jpg','brand_9_m.jpg','brand_9_s.jpg','T',9,0,'system',NOW(),'system',NOW()),
-(10,'探路者','toread','','brand_10_l.jpg','brand_10_m.jpg','brand_10_s.jpg','T',10,0,'system',NOW(),'system',NOW())
+(1,'百丽','belle','http://www.belle.com','brand_1_l.jpg','brand_1_m.jpg','brand_1_s.jpg',6,1,0,'system',NOW(),'system',NOW()),
+(2,'天美意','teenmix','http://www.teenmix.com.cn','brand_2_l.jpg','brand_2_m.jpg','brand_2_s.jpg',5,2,0,'system',NOW(),'system',NOW()),
+(3,'他她','tata','http://www.tatashoes.com.cn','brand_3_l.jpg','brand_3_m.jpg','brand_3_s.jpg',5,3,0,'system',NOW(),'system',NOW()),
+(4,'思加图','staccato','http://www.staccato.com','brand_4_l.jpg','brand_4_m.jpg','brand_4_s.jpg',4,4,0,'system',NOW(),'system',NOW()),
+(5,'百思图','basto','http://www.basto.com.cn','brand_5_l.jpg','brand_5_m.jpg','brand_5_s.jpg',5,5,0,'system',NOW(),'system',NOW()),
+(6,'茵奈儿','innet','','brand_6_l.jpg','brand_6_m.jpg','brand_6_s.jpg',5,6,0,'system',NOW(),'system',NOW()),
+(7,'真美诗','joypeace','http://www.joypeace.com','brand_7_l.jpg','brand_7_m.jpg','brand_7_s.jpg',5,7,0,'system',NOW(),'system',NOW()),
+(8,'耐克','nike','','brand_8_l.jpg','brand_8_m.jpg','brand_8_s.jpg',5,8,0,'system',NOW(),'system',NOW()),
+(9,'阿迪达斯','adidas','','brand_9_l.jpg','brand_9_m.jpg','brand_9_s.jpg',5,9,0,'system',NOW(),'system',NOW()),
+(10,'探路者','toread','','brand_10_l.jpg','brand_10_m.jpg','brand_10_s.jpg',5,10,0,'system',NOW(),'system',NOW())
 ;
 
 #数据初始化-分类表
@@ -154,7 +155,7 @@ values
 
 #数据初始化-商品表
 truncate table c_commodity;
-insert into c_commodity(no,sno,style_no,name,brand_id,category_id,supplier_id,sizechart_id,color,pic_color,pic_ver,cost_price,sale_price,market_price,status,pic_flag,is_delete,create_person,create_date,update_person,update_date)
+insert into c_commodity(no,sno,style_no,name,brand_id,category_id,supplier_id,sizechart_id,color,pic_color,pic_ver,cost_price,sale_price,market_price,status,is_picture_finish,is_delete,create_person,create_date,update_person,update_date)
 values
 ('99913497','BBL3PQF4DU1CM3','3PQF4CM3','BELLE/百丽啡色小牛皮3PQF4CM3秋季女单鞋',1,1,1,1,'咖啡色','99913497_c.jpg',1,100,200,300,3,1,0,'system',NOW(),'system',NOW()),
 ('99913498','BBL3PQF4DU1CM3','3PQF4CM3','BELLE/百丽黑色小牛皮/绵羊3PQF4CM3秋季女皮鞋',1,1,1,1,'黑色','99913498_c.jpg',1,100,200,300,3,1,0,'system',NOW(),'system',NOW()),
@@ -175,104 +176,104 @@ values
 ('99913497001','99913497','SAB99913497001','X',0,'system',NOW(),'system',NOW()),
 ('99913497002','99913497','SAB99913497002','XL',0,'system',NOW(),'system',NOW()),
 ('99913498001','99913498','SAB99913498001','X',0,'system',NOW(),'system',NOW()),
-('99913498002','99913498','SAB99913498002','S',0,'system',NOW(),'system',NOW()),
+('99913498002','99913498','SAB99913498002',4,0,'system',NOW(),'system',NOW()),
 ('99913498003','99913498','SAB99913498003','XL',0,'system',NOW(),'system',NOW()),
 ('99913498004','99913498','SAB99913498004','XXL',0,'system',NOW(),'system',NOW()),
-('99913498005','99913498','SAB99913498005','M',0,'system',NOW(),'system',NOW()),
+('99913498005','99913498','SAB99913498005',3,0,'system',NOW(),'system',NOW()),
 ('99907021001','99907021','SAB99907021001','X',0,'system',NOW(),'system',NOW()),
-('99907021002','99907021','SAB99907021002','S',0,'system',NOW(),'system',NOW()),
+('99907021002','99907021','SAB99907021002',4,0,'system',NOW(),'system',NOW()),
 ('99907021003','99907021','SAB99907021003','XL',0,'system',NOW(),'system',NOW()),
 ('99907022001','99907022','SAB99907022001','X',0,'system',NOW(),'system',NOW()),
-('99907022002','99907022','SAB99907022002','S',0,'system',NOW(),'system',NOW()),
+('99907022002','99907022','SAB99907022002',4,0,'system',NOW(),'system',NOW()),
 ('99907022003','99907022','SAB99907022003','XL',0,'system',NOW(),'system',NOW()),
 ('99907022004','99907022','SAB99907022004','XXL',0,'system',NOW(),'system',NOW()),
 ('99907023001','99907023','SAB99907023001','X',0,'system',NOW(),'system',NOW()),
-('99907023002','99907023','SAB99907023002','S',0,'system',NOW(),'system',NOW()),
+('99907023002','99907023','SAB99907023002',4,0,'system',NOW(),'system',NOW()),
 ('99907024001','99907024','SAB99907024001','X',0,'system',NOW(),'system',NOW()),
-('99907024002','99907024','SAB99907024002','S',0,'system',NOW(),'system',NOW()),
+('99907024002','99907024','SAB99907024002',4,0,'system',NOW(),'system',NOW()),
 ('99907024003','99907024','SAB99907024003','XL',0,'system',NOW(),'system',NOW()),
 ('99907024004','99907024','SAB99907024004','XXL',0,'system',NOW(),'system',NOW()),
-('99907024005','99907024','SAB99907024005','M',0,'system',NOW(),'system',NOW()),
+('99907024005','99907024','SAB99907024005',3,0,'system',NOW(),'system',NOW()),
 ('99907025001','99907025','SAB99907025001','X',0,'system',NOW(),'system',NOW()),
-('99907025002','99907025','SAB99907025002','S',0,'system',NOW(),'system',NOW()),
+('99907025002','99907025','SAB99907025002',4,0,'system',NOW(),'system',NOW()),
 ('99916866001','99916866','SAB99916866001','X',0,'system',NOW(),'system',NOW()),
-('99916866002','99916866','SAB99916866002','S',0,'system',NOW(),'system',NOW()),
+('99916866002','99916866','SAB99916866002',4,0,'system',NOW(),'system',NOW()),
 ('99916867001','99916867','SAB99916867001','X',0,'system',NOW(),'system',NOW()),
-('99916867002','99916867','SAB99916867002','S',0,'system',NOW(),'system',NOW()),
+('99916867002','99916867','SAB99916867002',4,0,'system',NOW(),'system',NOW()),
 ('99916867003','99916867','SAB99916867003','XL',0,'system',NOW(),'system',NOW()),
 ('99916868001','99916868','SAB99916868001','X',0,'system',NOW(),'system',NOW()),
-('99916868002','99916868','SAB99916868002','S',0,'system',NOW(),'system',NOW()),
+('99916868002','99916868','SAB99916868002',4,0,'system',NOW(),'system',NOW()),
 ('99916868003','99916868','SAB99916868003','XL',0,'system',NOW(),'system',NOW()),
 ('99916868004','99916868','SAB99916868004','XXL',0,'system',NOW(),'system',NOW()),
-('99916868005','99916868','SAB99916868005','M',0,'system',NOW(),'system',NOW()),
+('99916868005','99916868','SAB99916868005',3,0,'system',NOW(),'system',NOW()),
 ('99916868006','99916868','SAB99916868XX5','微号',0,'system',NOW(),'system',NOW()),
 ('99916868007','99916868','SAB99916868YY5','大号',0,'system',NOW(),'system',NOW())
 ;
 
 #数据初始化-商品图片表
 truncate table c_commodity_picture;
-insert into c_commodity_picture(name,commodity_no,type,create_person,create_date,update_person,update_date)
+insert into c_commodity_picture(name,commodity_no,picture_type,create_person,create_date,update_person,update_date)
 values
-('99913497_01_b.jpg','99913497','b','system',NOW(),'system',NOW()),
-('99913497_01_o.jpg','99913497','o','system',NOW(),'system',NOW()),('99913497_02_o.jpg','99913497','o','system',NOW(),'system',NOW()),('99913497_03_o.jpg','99913497','o','system',NOW(),'system',NOW()),
-('99913497_01_l.jpg','99913497','l','system',NOW(),'system',NOW()),('99913497_02_l.jpg','99913497','l','system',NOW(),'system',NOW()),('99913497_03_l.jpg','99913497','l','system',NOW(),'system',NOW()),
-('99913497_01_m.jpg','99913497','m','system',NOW(),'system',NOW()),('99913497_02_m.jpg','99913497','m','system',NOW(),'system',NOW()),('99913497_03_m.jpg','99913497','m','system',NOW(),'system',NOW()),
-('99913497_01_s.jpg','99913497','s','system',NOW(),'system',NOW()),('99913497_02_s.jpg','99913497','s','system',NOW(),'system',NOW()),('99913497_03_s.jpg','99913497','s','system',NOW(),'system',NOW()),
-('99913497_01_t.jpg','99913497','t','system',NOW(),'system',NOW()),('99913497_02_t.jpg','99913497','t','system',NOW(),'system',NOW()),('99913497_03_t.jpg','99913497','t','system',NOW(),'system',NOW()),
-('99913498_01_b.jpg','99913498','b','system',NOW(),'system',NOW()),
-('99913498_01_o.jpg','99913498','o','system',NOW(),'system',NOW()),('99913498_02_o.jpg','99913498','o','system',NOW(),'system',NOW()),('99913498_03_o.jpg','99913498','o','system',NOW(),'system',NOW()),
-('99913498_01_l.jpg','99913498','l','system',NOW(),'system',NOW()),('99913498_02_l.jpg','99913498','l','system',NOW(),'system',NOW()),('99913498_03_l.jpg','99913498','l','system',NOW(),'system',NOW()),
-('99913498_01_m.jpg','99913498','m','system',NOW(),'system',NOW()),('99913498_02_m.jpg','99913498','m','system',NOW(),'system',NOW()),('99913498_03_m.jpg','99913498','m','system',NOW(),'system',NOW()),
-('99913498_01_s.jpg','99913498','s','system',NOW(),'system',NOW()),('99913498_02_s.jpg','99913498','s','system',NOW(),'system',NOW()),('99913498_03_s.jpg','99913498','s','system',NOW(),'system',NOW()),
-('99913498_01_t.jpg','99913498','t','system',NOW(),'system',NOW()),('99913498_02_t.jpg','99913498','t','system',NOW(),'system',NOW()),('99913498_03_t.jpg','99913498','t','system',NOW(),'system',NOW()),
-('99907021_01_b.jpg','99907021','b','system',NOW(),'system',NOW()),
-('99907021_01_o.jpg','99907021','o','system',NOW(),'system',NOW()),('99907021_02_o.jpg','99907021','o','system',NOW(),'system',NOW()),('99907021_03_o.jpg','99907021','o','system',NOW(),'system',NOW()),
-('99907021_01_l.jpg','99907021','l','system',NOW(),'system',NOW()),('99907021_02_l.jpg','99907021','l','system',NOW(),'system',NOW()),('99907021_03_l.jpg','99907021','l','system',NOW(),'system',NOW()),
-('99907021_01_m.jpg','99907021','m','system',NOW(),'system',NOW()),('99907021_02_m.jpg','99907021','m','system',NOW(),'system',NOW()),('99907021_03_m.jpg','99907021','m','system',NOW(),'system',NOW()),
-('99907021_01_s.jpg','99907021','s','system',NOW(),'system',NOW()),('99907021_02_s.jpg','99907021','s','system',NOW(),'system',NOW()),('99907021_03_s.jpg','99907021','s','system',NOW(),'system',NOW()),
-('99907021_01_t.jpg','99907021','t','system',NOW(),'system',NOW()),('99907021_02_t.jpg','99907021','t','system',NOW(),'system',NOW()),('99907021_03_t.jpg','99907021','t','system',NOW(),'system',NOW()),
-('99907022_01_b.jpg','99907022','b','system',NOW(),'system',NOW()),
-('99907022_01_o.jpg','99907022','o','system',NOW(),'system',NOW()),('99907022_02_o.jpg','99907022','o','system',NOW(),'system',NOW()),('99907022_03_o.jpg','99907022','o','system',NOW(),'system',NOW()),
-('99907022_01_l.jpg','99907022','l','system',NOW(),'system',NOW()),('99907022_02_l.jpg','99907022','l','system',NOW(),'system',NOW()),('99907022_03_l.jpg','99907022','l','system',NOW(),'system',NOW()),
-('99907022_01_m.jpg','99907022','m','system',NOW(),'system',NOW()),('99907022_02_m.jpg','99907022','m','system',NOW(),'system',NOW()),('99907022_03_m.jpg','99907022','m','system',NOW(),'system',NOW()),
-('99907022_01_s.jpg','99907022','s','system',NOW(),'system',NOW()),('99907022_02_s.jpg','99907022','s','system',NOW(),'system',NOW()),('99907022_03_s.jpg','99907022','s','system',NOW(),'system',NOW()),
-('99907022_01_t.jpg','99907022','t','system',NOW(),'system',NOW()),('99907022_02_t.jpg','99907022','t','system',NOW(),'system',NOW()),('99907022_03_t.jpg','99907022','t','system',NOW(),'system',NOW()),
-('99907023_01_b.jpg','99907023','b','system',NOW(),'system',NOW()),
-('99907023_01_o.jpg','99907023','o','system',NOW(),'system',NOW()),('99907023_02_o.jpg','99907023','o','system',NOW(),'system',NOW()),('99907023_03_o.jpg','99907023','o','system',NOW(),'system',NOW()),
-('99907023_01_l.jpg','99907023','l','system',NOW(),'system',NOW()),('99907023_02_l.jpg','99907023','l','system',NOW(),'system',NOW()),('99907023_03_l.jpg','99907023','l','system',NOW(),'system',NOW()),
-('99907023_01_m.jpg','99907023','m','system',NOW(),'system',NOW()),('99907023_02_m.jpg','99907023','m','system',NOW(),'system',NOW()),('99907023_03_m.jpg','99907023','m','system',NOW(),'system',NOW()),
-('99907023_01_s.jpg','99907023','s','system',NOW(),'system',NOW()),('99907023_02_s.jpg','99907023','s','system',NOW(),'system',NOW()),('99907023_03_s.jpg','99907023','s','system',NOW(),'system',NOW()),
-('99907023_01_t.jpg','99907023','t','system',NOW(),'system',NOW()),('99907023_02_t.jpg','99907023','t','system',NOW(),'system',NOW()),('99907023_03_t.jpg','99907023','t','system',NOW(),'system',NOW()),
-('99907024_01_b.jpg','99907024','b','system',NOW(),'system',NOW()),
-('99907024_01_o.jpg','99907024','o','system',NOW(),'system',NOW()),('99907024_02_o.jpg','99907024','o','system',NOW(),'system',NOW()),('99907024_03_o.jpg','99907024','o','system',NOW(),'system',NOW()),
-('99907024_01_l.jpg','99907024','l','system',NOW(),'system',NOW()),('99907024_02_l.jpg','99907024','l','system',NOW(),'system',NOW()),('99907024_03_l.jpg','99907024','l','system',NOW(),'system',NOW()),
-('99907024_01_m.jpg','99907024','m','system',NOW(),'system',NOW()),('99907024_02_m.jpg','99907024','m','system',NOW(),'system',NOW()),('99907024_03_m.jpg','99907024','m','system',NOW(),'system',NOW()),
-('99907024_01_s.jpg','99907024','s','system',NOW(),'system',NOW()),('99907024_02_s.jpg','99907024','s','system',NOW(),'system',NOW()),('99907024_03_s.jpg','99907024','s','system',NOW(),'system',NOW()),
-('99907024_01_t.jpg','99907024','t','system',NOW(),'system',NOW()),('99907024_02_t.jpg','99907024','t','system',NOW(),'system',NOW()),('99907024_03_t.jpg','99907024','t','system',NOW(),'system',NOW()),
-('99907025_01_b.jpg','99907025','b','system',NOW(),'system',NOW()),
-('99907025_01_o.jpg','99907025','o','system',NOW(),'system',NOW()),('99907025_02_o.jpg','99907025','o','system',NOW(),'system',NOW()),('99907025_03_o.jpg','99907025','o','system',NOW(),'system',NOW()),
-('99907025_01_l.jpg','99907025','l','system',NOW(),'system',NOW()),('99907025_02_l.jpg','99907025','l','system',NOW(),'system',NOW()),('99907025_03_l.jpg','99907025','l','system',NOW(),'system',NOW()),
-('99907025_01_m.jpg','99907025','m','system',NOW(),'system',NOW()),('99907025_02_m.jpg','99907025','m','system',NOW(),'system',NOW()),('99907025_03_m.jpg','99907025','m','system',NOW(),'system',NOW()),
-('99907025_01_s.jpg','99907025','s','system',NOW(),'system',NOW()),('99907025_02_s.jpg','99907025','s','system',NOW(),'system',NOW()),('99907025_03_s.jpg','99907025','s','system',NOW(),'system',NOW()),
-('99907025_01_t.jpg','99907025','t','system',NOW(),'system',NOW()),('99907025_02_t.jpg','99907025','t','system',NOW(),'system',NOW()),('99907025_03_t.jpg','99907025','t','system',NOW(),'system',NOW()),
-('99916866_01_b.jpg','99916866','b','system',NOW(),'system',NOW()),
-('99916866_01_o.jpg','99916866','o','system',NOW(),'system',NOW()),('99916866_02_o.jpg','99916866','o','system',NOW(),'system',NOW()),('99916866_03_o.jpg','99916866','o','system',NOW(),'system',NOW()),
-('99916866_01_l.jpg','99916866','l','system',NOW(),'system',NOW()),('99916866_02_l.jpg','99916866','l','system',NOW(),'system',NOW()),('99916866_03_l.jpg','99916866','l','system',NOW(),'system',NOW()),
-('99916866_01_m.jpg','99916866','m','system',NOW(),'system',NOW()),('99916866_02_m.jpg','99916866','m','system',NOW(),'system',NOW()),('99916866_03_m.jpg','99916866','m','system',NOW(),'system',NOW()),
-('99916866_01_s.jpg','99916866','s','system',NOW(),'system',NOW()),('99916866_02_s.jpg','99916866','s','system',NOW(),'system',NOW()),('99916866_03_s.jpg','99916866','s','system',NOW(),'system',NOW()),
-('99916866_01_t.jpg','99916866','t','system',NOW(),'system',NOW()),('99916866_02_t.jpg','99916866','t','system',NOW(),'system',NOW()),('99916866_03_t.jpg','99916866','t','system',NOW(),'system',NOW()),
-('99916867_01_b.jpg','99916867','b','system',NOW(),'system',NOW()),
-('99916867_01_o.jpg','99916867','o','system',NOW(),'system',NOW()),('99916867_02_o.jpg','99916867','o','system',NOW(),'system',NOW()),('99916867_03_o.jpg','99916867','o','system',NOW(),'system',NOW()),
-('99916867_01_l.jpg','99916867','l','system',NOW(),'system',NOW()),('99916867_02_l.jpg','99916867','l','system',NOW(),'system',NOW()),('99916867_03_l.jpg','99916867','l','system',NOW(),'system',NOW()),
-('99916867_01_m.jpg','99916867','m','system',NOW(),'system',NOW()),('99916867_02_m.jpg','99916867','m','system',NOW(),'system',NOW()),('99916867_03_m.jpg','99916867','m','system',NOW(),'system',NOW()),
-('99916867_01_s.jpg','99916867','s','system',NOW(),'system',NOW()),('99916867_02_s.jpg','99916867','s','system',NOW(),'system',NOW()),('99916867_03_s.jpg','99916867','s','system',NOW(),'system',NOW()),
-('99916867_01_t.jpg','99916867','t','system',NOW(),'system',NOW()),('99916867_02_t.jpg','99916867','t','system',NOW(),'system',NOW()),('99916867_03_t.jpg','99916867','t','system',NOW(),'system',NOW()),
-('99916868_01_b.jpg','99916868','b','system',NOW(),'system',NOW()),
-('99916868_01_o.jpg','99916868','o','system',NOW(),'system',NOW()),('99916868_02_o.jpg','99916868','o','system',NOW(),'system',NOW()),('99916868_03_o.jpg','99916868','o','system',NOW(),'system',NOW()),
-('99916868_01_l.jpg','99916868','l','system',NOW(),'system',NOW()),('99916868_02_l.jpg','99916868','l','system',NOW(),'system',NOW()),('99916868_03_l.jpg','99916868','l','system',NOW(),'system',NOW()),
-('99916868_01_m.jpg','99916868','m','system',NOW(),'system',NOW()),('99916868_02_m.jpg','99916868','m','system',NOW(),'system',NOW()),('99916868_03_m.jpg','99916868','m','system',NOW(),'system',NOW()),
-('99916868_01_s.jpg','99916868','s','system',NOW(),'system',NOW()),('99916868_02_s.jpg','99916868','s','system',NOW(),'system',NOW()),('99916868_03_s.jpg','99916868','s','system',NOW(),'system',NOW()),
-('99916868_01_t.jpg','99916868','t','system',NOW(),'system',NOW()),('99916868_02_t.jpg','99916868','t','system',NOW(),'system',NOW()),('99916868_03_t.jpg','99916868','t','system',NOW(),'system',NOW())
+('99913497_01_b.jpg','99913497',6,'system',NOW(),'system',NOW()),
+('99913497_01_o.jpg','99913497',1,'system',NOW(),'system',NOW()),('99913497_02_o.jpg','99913497',1,'system',NOW(),'system',NOW()),('99913497_03_o.jpg','99913497',1,'system',NOW(),'system',NOW()),
+('99913497_01_l.jpg','99913497',2,'system',NOW(),'system',NOW()),('99913497_02_l.jpg','99913497',2,'system',NOW(),'system',NOW()),('99913497_03_l.jpg','99913497',2,'system',NOW(),'system',NOW()),
+('99913497_01_m.jpg','99913497',3,'system',NOW(),'system',NOW()),('99913497_02_m.jpg','99913497',3,'system',NOW(),'system',NOW()),('99913497_03_m.jpg','99913497',3,'system',NOW(),'system',NOW()),
+('99913497_01_s.jpg','99913497',4,'system',NOW(),'system',NOW()),('99913497_02_s.jpg','99913497',4,'system',NOW(),'system',NOW()),('99913497_03_s.jpg','99913497',4,'system',NOW(),'system',NOW()),
+('99913497_01_t.jpg','99913497',5,'system',NOW(),'system',NOW()),('99913497_02_t.jpg','99913497',5,'system',NOW(),'system',NOW()),('99913497_03_t.jpg','99913497',5,'system',NOW(),'system',NOW()),
+('99913498_01_b.jpg','99913498',6,'system',NOW(),'system',NOW()),
+('99913498_01_o.jpg','99913498',1,'system',NOW(),'system',NOW()),('99913498_02_o.jpg','99913498',1,'system',NOW(),'system',NOW()),('99913498_03_o.jpg','99913498',1,'system',NOW(),'system',NOW()),
+('99913498_01_l.jpg','99913498',2,'system',NOW(),'system',NOW()),('99913498_02_l.jpg','99913498',2,'system',NOW(),'system',NOW()),('99913498_03_l.jpg','99913498',2,'system',NOW(),'system',NOW()),
+('99913498_01_m.jpg','99913498',3,'system',NOW(),'system',NOW()),('99913498_02_m.jpg','99913498',3,'system',NOW(),'system',NOW()),('99913498_03_m.jpg','99913498',3,'system',NOW(),'system',NOW()),
+('99913498_01_s.jpg','99913498',4,'system',NOW(),'system',NOW()),('99913498_02_s.jpg','99913498',4,'system',NOW(),'system',NOW()),('99913498_03_s.jpg','99913498',4,'system',NOW(),'system',NOW()),
+('99913498_01_t.jpg','99913498',5,'system',NOW(),'system',NOW()),('99913498_02_t.jpg','99913498',5,'system',NOW(),'system',NOW()),('99913498_03_t.jpg','99913498',5,'system',NOW(),'system',NOW()),
+('99907021_01_b.jpg','99907021',6,'system',NOW(),'system',NOW()),
+('99907021_01_o.jpg','99907021',1,'system',NOW(),'system',NOW()),('99907021_02_o.jpg','99907021',1,'system',NOW(),'system',NOW()),('99907021_03_o.jpg','99907021',1,'system',NOW(),'system',NOW()),
+('99907021_01_l.jpg','99907021',2,'system',NOW(),'system',NOW()),('99907021_02_l.jpg','99907021',2,'system',NOW(),'system',NOW()),('99907021_03_l.jpg','99907021',2,'system',NOW(),'system',NOW()),
+('99907021_01_m.jpg','99907021',3,'system',NOW(),'system',NOW()),('99907021_02_m.jpg','99907021',3,'system',NOW(),'system',NOW()),('99907021_03_m.jpg','99907021',3,'system',NOW(),'system',NOW()),
+('99907021_01_s.jpg','99907021',4,'system',NOW(),'system',NOW()),('99907021_02_s.jpg','99907021',4,'system',NOW(),'system',NOW()),('99907021_03_s.jpg','99907021',4,'system',NOW(),'system',NOW()),
+('99907021_01_t.jpg','99907021',5,'system',NOW(),'system',NOW()),('99907021_02_t.jpg','99907021',5,'system',NOW(),'system',NOW()),('99907021_03_t.jpg','99907021',5,'system',NOW(),'system',NOW()),
+('99907022_01_b.jpg','99907022',6,'system',NOW(),'system',NOW()),
+('99907022_01_o.jpg','99907022',1,'system',NOW(),'system',NOW()),('99907022_02_o.jpg','99907022',1,'system',NOW(),'system',NOW()),('99907022_03_o.jpg','99907022',1,'system',NOW(),'system',NOW()),
+('99907022_01_l.jpg','99907022',2,'system',NOW(),'system',NOW()),('99907022_02_l.jpg','99907022',2,'system',NOW(),'system',NOW()),('99907022_03_l.jpg','99907022',2,'system',NOW(),'system',NOW()),
+('99907022_01_m.jpg','99907022',3,'system',NOW(),'system',NOW()),('99907022_02_m.jpg','99907022',3,'system',NOW(),'system',NOW()),('99907022_03_m.jpg','99907022',3,'system',NOW(),'system',NOW()),
+('99907022_01_s.jpg','99907022',4,'system',NOW(),'system',NOW()),('99907022_02_s.jpg','99907022',4,'system',NOW(),'system',NOW()),('99907022_03_s.jpg','99907022',4,'system',NOW(),'system',NOW()),
+('99907022_01_t.jpg','99907022',5,'system',NOW(),'system',NOW()),('99907022_02_t.jpg','99907022',5,'system',NOW(),'system',NOW()),('99907022_03_t.jpg','99907022',5,'system',NOW(),'system',NOW()),
+('99907023_01_b.jpg','99907023',6,'system',NOW(),'system',NOW()),
+('99907023_01_o.jpg','99907023',1,'system',NOW(),'system',NOW()),('99907023_02_o.jpg','99907023',1,'system',NOW(),'system',NOW()),('99907023_03_o.jpg','99907023',1,'system',NOW(),'system',NOW()),
+('99907023_01_l.jpg','99907023',2,'system',NOW(),'system',NOW()),('99907023_02_l.jpg','99907023',2,'system',NOW(),'system',NOW()),('99907023_03_l.jpg','99907023',2,'system',NOW(),'system',NOW()),
+('99907023_01_m.jpg','99907023',3,'system',NOW(),'system',NOW()),('99907023_02_m.jpg','99907023',3,'system',NOW(),'system',NOW()),('99907023_03_m.jpg','99907023',3,'system',NOW(),'system',NOW()),
+('99907023_01_s.jpg','99907023',4,'system',NOW(),'system',NOW()),('99907023_02_s.jpg','99907023',4,'system',NOW(),'system',NOW()),('99907023_03_s.jpg','99907023',4,'system',NOW(),'system',NOW()),
+('99907023_01_t.jpg','99907023',5,'system',NOW(),'system',NOW()),('99907023_02_t.jpg','99907023',5,'system',NOW(),'system',NOW()),('99907023_03_t.jpg','99907023',5,'system',NOW(),'system',NOW()),
+('99907024_01_b.jpg','99907024',6,'system',NOW(),'system',NOW()),
+('99907024_01_o.jpg','99907024',1,'system',NOW(),'system',NOW()),('99907024_02_o.jpg','99907024',1,'system',NOW(),'system',NOW()),('99907024_03_o.jpg','99907024',1,'system',NOW(),'system',NOW()),
+('99907024_01_l.jpg','99907024',2,'system',NOW(),'system',NOW()),('99907024_02_l.jpg','99907024',2,'system',NOW(),'system',NOW()),('99907024_03_l.jpg','99907024',2,'system',NOW(),'system',NOW()),
+('99907024_01_m.jpg','99907024',3,'system',NOW(),'system',NOW()),('99907024_02_m.jpg','99907024',3,'system',NOW(),'system',NOW()),('99907024_03_m.jpg','99907024',3,'system',NOW(),'system',NOW()),
+('99907024_01_s.jpg','99907024',4,'system',NOW(),'system',NOW()),('99907024_02_s.jpg','99907024',4,'system',NOW(),'system',NOW()),('99907024_03_s.jpg','99907024',4,'system',NOW(),'system',NOW()),
+('99907024_01_t.jpg','99907024',5,'system',NOW(),'system',NOW()),('99907024_02_t.jpg','99907024',5,'system',NOW(),'system',NOW()),('99907024_03_t.jpg','99907024',5,'system',NOW(),'system',NOW()),
+('99907025_01_b.jpg','99907025',6,'system',NOW(),'system',NOW()),
+('99907025_01_o.jpg','99907025',1,'system',NOW(),'system',NOW()),('99907025_02_o.jpg','99907025',1,'system',NOW(),'system',NOW()),('99907025_03_o.jpg','99907025',1,'system',NOW(),'system',NOW()),
+('99907025_01_l.jpg','99907025',2,'system',NOW(),'system',NOW()),('99907025_02_l.jpg','99907025',2,'system',NOW(),'system',NOW()),('99907025_03_l.jpg','99907025',2,'system',NOW(),'system',NOW()),
+('99907025_01_m.jpg','99907025',3,'system',NOW(),'system',NOW()),('99907025_02_m.jpg','99907025',3,'system',NOW(),'system',NOW()),('99907025_03_m.jpg','99907025',3,'system',NOW(),'system',NOW()),
+('99907025_01_s.jpg','99907025',4,'system',NOW(),'system',NOW()),('99907025_02_s.jpg','99907025',4,'system',NOW(),'system',NOW()),('99907025_03_s.jpg','99907025',4,'system',NOW(),'system',NOW()),
+('99907025_01_t.jpg','99907025',5,'system',NOW(),'system',NOW()),('99907025_02_t.jpg','99907025',5,'system',NOW(),'system',NOW()),('99907025_03_t.jpg','99907025',5,'system',NOW(),'system',NOW()),
+('99916866_01_b.jpg','99916866',6,'system',NOW(),'system',NOW()),
+('99916866_01_o.jpg','99916866',1,'system',NOW(),'system',NOW()),('99916866_02_o.jpg','99916866',1,'system',NOW(),'system',NOW()),('99916866_03_o.jpg','99916866',1,'system',NOW(),'system',NOW()),
+('99916866_01_l.jpg','99916866',2,'system',NOW(),'system',NOW()),('99916866_02_l.jpg','99916866',2,'system',NOW(),'system',NOW()),('99916866_03_l.jpg','99916866',2,'system',NOW(),'system',NOW()),
+('99916866_01_m.jpg','99916866',3,'system',NOW(),'system',NOW()),('99916866_02_m.jpg','99916866',3,'system',NOW(),'system',NOW()),('99916866_03_m.jpg','99916866',3,'system',NOW(),'system',NOW()),
+('99916866_01_s.jpg','99916866',4,'system',NOW(),'system',NOW()),('99916866_02_s.jpg','99916866',4,'system',NOW(),'system',NOW()),('99916866_03_s.jpg','99916866',4,'system',NOW(),'system',NOW()),
+('99916866_01_t.jpg','99916866',5,'system',NOW(),'system',NOW()),('99916866_02_t.jpg','99916866',5,'system',NOW(),'system',NOW()),('99916866_03_t.jpg','99916866',5,'system',NOW(),'system',NOW()),
+('99916867_01_b.jpg','99916867',6,'system',NOW(),'system',NOW()),
+('99916867_01_o.jpg','99916867',1,'system',NOW(),'system',NOW()),('99916867_02_o.jpg','99916867',1,'system',NOW(),'system',NOW()),('99916867_03_o.jpg','99916867',1,'system',NOW(),'system',NOW()),
+('99916867_01_l.jpg','99916867',2,'system',NOW(),'system',NOW()),('99916867_02_l.jpg','99916867',2,'system',NOW(),'system',NOW()),('99916867_03_l.jpg','99916867',2,'system',NOW(),'system',NOW()),
+('99916867_01_m.jpg','99916867',3,'system',NOW(),'system',NOW()),('99916867_02_m.jpg','99916867',3,'system',NOW(),'system',NOW()),('99916867_03_m.jpg','99916867',3,'system',NOW(),'system',NOW()),
+('99916867_01_s.jpg','99916867',4,'system',NOW(),'system',NOW()),('99916867_02_s.jpg','99916867',4,'system',NOW(),'system',NOW()),('99916867_03_s.jpg','99916867',4,'system',NOW(),'system',NOW()),
+('99916867_01_t.jpg','99916867',5,'system',NOW(),'system',NOW()),('99916867_02_t.jpg','99916867',5,'system',NOW(),'system',NOW()),('99916867_03_t.jpg','99916867',5,'system',NOW(),'system',NOW()),
+('99916868_01_b.jpg','99916868',6,'system',NOW(),'system',NOW()),
+('99916868_01_o.jpg','99916868',1,'system',NOW(),'system',NOW()),('99916868_02_o.jpg','99916868',1,'system',NOW(),'system',NOW()),('99916868_03_o.jpg','99916868',1,'system',NOW(),'system',NOW()),
+('99916868_01_l.jpg','99916868',2,'system',NOW(),'system',NOW()),('99916868_02_l.jpg','99916868',2,'system',NOW(),'system',NOW()),('99916868_03_l.jpg','99916868',2,'system',NOW(),'system',NOW()),
+('99916868_01_m.jpg','99916868',3,'system',NOW(),'system',NOW()),('99916868_02_m.jpg','99916868',3,'system',NOW(),'system',NOW()),('99916868_03_m.jpg','99916868',3,'system',NOW(),'system',NOW()),
+('99916868_01_s.jpg','99916868',4,'system',NOW(),'system',NOW()),('99916868_02_s.jpg','99916868',4,'system',NOW(),'system',NOW()),('99916868_03_s.jpg','99916868',4,'system',NOW(),'system',NOW()),
+('99916868_01_t.jpg','99916868',5,'system',NOW(),'system',NOW()),('99916868_02_t.jpg','99916868',5,'system',NOW(),'system',NOW()),('99916868_03_t.jpg','99916868',5,'system',NOW(),'system',NOW())
 ;
 
 #数据初始化-商品属性表
@@ -293,7 +294,7 @@ values
 
 #数据初始化-尺码对照表
 truncate table c_sizechart;
-insert into c_sizechart(id,title,content,remark,type,is_delete,create_person,create_date,update_person,update_date)
+insert into c_sizechart(id,title,content,remark,sizechart_type_id,is_delete,create_person,create_date,update_person,update_date)
 values
 (1,'女鞋尺码表','法国码,34,35,36;国标码,220,225,230','这里是温馨提示',1,0,'system',NOW(),'system',NOW())
 ;

@@ -11,7 +11,7 @@ public class Sizechart {
 
     private String remark;
 
-    private Integer type;
+    private Byte sizechartTypeId;
 
     private Boolean isDelete;
 
@@ -55,12 +55,12 @@ public class Sizechart {
         this.remark = remark;
     }
 
-    public Integer getType() {
-        return type;
+    public Byte getSizechartTypeId() {
+        return sizechartTypeId;
     }
 
-    public void setType(Integer type) {
-        this.type = type;
+    public void setSizechartTypeId(Byte sizechartTypeId) {
+        this.sizechartTypeId = sizechartTypeId;
     }
 
     public Boolean getIsDelete() {

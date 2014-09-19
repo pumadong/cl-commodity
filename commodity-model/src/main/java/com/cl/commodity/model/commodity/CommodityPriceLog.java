@@ -8,7 +8,7 @@ public class CommodityPriceLog {
 
     private String commodityNo;
 
-    private Integer type;
+    private Byte logTypeId;
 
     private BigDecimal oldPrice;
 
@@ -34,12 +34,12 @@ public class CommodityPriceLog {
         this.commodityNo = commodityNo;
     }
 
-    public Integer getType() {
-        return type;
+    public Byte getLogTypeId() {
+        return logTypeId;
     }
 
-    public void setType(Integer type) {
-        this.type = type;
+    public void setLogTypeId(Byte logTypeId) {
+        this.logTypeId = logTypeId;
     }
 
     public BigDecimal getOldPrice() {

@@ -9,11 +9,11 @@ public class CategoryPropItemRef {
 
     private Integer propItemId;
 
-    private Integer isRequired;
+    private Boolean isRequired;
 
-    private Integer isMultiple;
+    private Boolean isMultiple;
 
-    private Integer isShow;
+    private Boolean isShow;
 
     private String createPerson;
 
@@ -47,27 +47,27 @@ public class CategoryPropItemRef {
         this.propItemId = propItemId;
     }
 
-    public Integer getIsRequired() {
+    public Boolean getIsRequired() {
         return isRequired;
     }
 
-    public void setIsRequired(Integer isRequired) {
+    public void setIsRequired(Boolean isRequired) {
         this.isRequired = isRequired;
     }
 
-    public Integer getIsMultiple() {
+    public Boolean getIsMultiple() {
         return isMultiple;
     }
 
-    public void setIsMultiple(Integer isMultiple) {
+    public void setIsMultiple(Boolean isMultiple) {
         this.isMultiple = isMultiple;
     }
 
-    public Integer getIsShow() {
+    public Boolean getIsShow() {
         return isShow;
     }
 
-    public void setIsShow(Integer isShow) {
+    public void setIsShow(Boolean isShow) {
         this.isShow = isShow;
     }
 

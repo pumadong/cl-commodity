@@ -4,14 +4,14 @@
   <resultMap id="BaseResultMap" type="com.cl.commodity.model.commodity.CommodityPriceLog" >
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="commodity_no" property="commodityNo" jdbcType="VARCHAR" />
-    <result column="type" property="type" jdbcType="INTEGER" />
+    <result column="log_type_id" property="logTypeId" jdbcType="TINYINT" />
     <result column="old_price" property="oldPrice" jdbcType="DECIMAL" />
     <result column="new_price" property="newPrice" jdbcType="DECIMAL" />
     <result column="create_person" property="createPerson" jdbcType="VARCHAR" />
     <result column="create_date" property="createDate" jdbcType="TIMESTAMP" />
   </resultMap>
   <sql id="Base_Column_List" >
-    id, commodity_no, type, old_price, new_price, create_person, create_date
+    id, commodity_no, log_type_id, old_price, new_price, create_person, create_date
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
@@ -24,10 +24,10 @@
     where id = #{id,jdbcType=INTEGER}
   </delete>
   <insert id="insert" parameterType="com.cl.commodity.model.commodity.CommodityPriceLog" >
-    insert into c_commodity_price_log (id, commodity_no, type, 
+    insert into c_commodity_price_log (id, commodity_no, log_type_id, 
       old_price, new_price, create_person, 
       create_date)
-    values (#{id,jdbcType=INTEGER}, #{commodityNo,jdbcType=VARCHAR}, #{type,jdbcType=INTEGER}, 
+    values (#{id,jdbcType=INTEGER}, #{commodityNo,jdbcType=VARCHAR}, #{logTypeId,jdbcType=TINYINT}, 
       #{oldPrice,jdbcType=DECIMAL}, #{newPrice,jdbcType=DECIMAL}, #{createPerson,jdbcType=VARCHAR}, 
       #{createDate,jdbcType=TIMESTAMP})
   </insert>
@@ -40,8 +40,8 @@
       <if test="commodityNo != null" >
         commodity_no,
       </if>
-      <if test="type != null" >
-        type,
+      <if test="logTypeId != null" >
+        log_type_id,
       </if>
       <if test="oldPrice != null" >
         old_price,
@@ -63,8 +63,8 @@
       <if test="commodityNo != null" >
         #{commodityNo,jdbcType=VARCHAR},
       </if>
-      <if test="type != null" >
-        #{type,jdbcType=INTEGER},
+      <if test="logTypeId != null" >
+        #{logTypeId,jdbcType=TINYINT},
       </if>
       <if test="oldPrice != null" >
         #{oldPrice,jdbcType=DECIMAL},
@@ -86,8 +86,8 @@
       <if test="commodityNo != null" >
         commodity_no = #{commodityNo,jdbcType=VARCHAR},
       </if>
-      <if test="type != null" >
-        type = #{type,jdbcType=INTEGER},
+      <if test="logTypeId != null" >
+        log_type_id = #{logTypeId,jdbcType=TINYINT},
       </if>
       <if test="oldPrice != null" >
         old_price = #{oldPrice,jdbcType=DECIMAL},
@@ -107,7 +107,7 @@
   <update id="updateByPrimaryKey" parameterType="com.cl.commodity.model.commodity.CommodityPriceLog" >
     update c_commodity_price_log
     set commodity_no = #{commodityNo,jdbcType=VARCHAR},
-      type = #{type,jdbcType=INTEGER},
+      log_type_id = #{logTypeId,jdbcType=TINYINT},
       old_price = #{oldPrice,jdbcType=DECIMAL},
       new_price = #{newPrice,jdbcType=DECIMAL},
       create_person = #{createPerson,jdbcType=VARCHAR},

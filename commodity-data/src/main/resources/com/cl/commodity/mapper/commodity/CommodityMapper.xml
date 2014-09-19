@@ -16,20 +16,19 @@
     <result column="cost_price" property="costPrice" jdbcType="DECIMAL" />
     <result column="sale_price" property="salePrice" jdbcType="DECIMAL" />
     <result column="market_price" property="marketPrice" jdbcType="DECIMAL" />
-    <result column="status" property="status" jdbcType="INTEGER" />
-    <result column="pic_flag" property="picFlag" jdbcType="INTEGER" />
+    <result column="status" property="status" jdbcType="TINYINT" />
+    <result column="is_picture_finish" property="isPictureFinish" jdbcType="BIT" />
     <result column="is_delete" property="isDelete" jdbcType="BIT" />
     <result column="create_person" property="createPerson" jdbcType="VARCHAR" />
     <result column="create_date" property="createDate" jdbcType="TIMESTAMP" />
     <result column="update_person" property="updatePerson" jdbcType="VARCHAR" />
     <result column="update_date" property="updateDate" jdbcType="TIMESTAMP" />
-    <result column="line_id" property="lineId" jdbcType="BIGINT" />
-    <result column="for_order" property="forOrder" jdbcType="INTEGER" />
+    <result column="line_id" property="lineId" jdbcType="INTEGER" />
   </resultMap>
   <sql id="Base_Column_List" >
     no, sno, style_no, name, brand_id, category_id, supplier_id, sizechart_id, color, 
-    pic_color, pic_ver, cost_price, sale_price, market_price, status, pic_flag, is_delete, 
-    create_person, create_date, update_person, update_date, line_id, for_order
+    pic_color, pic_ver, cost_price, sale_price, market_price, status, is_picture_finish, 
+    is_delete, create_person, create_date, update_person, update_date, line_id
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
     select 
@@ -47,17 +46,17 @@
       supplier_id, sizechart_id, color, 
       pic_color, pic_ver, cost_price, 
       sale_price, market_price, status, 
-      pic_flag, is_delete, create_person, 
+      is_picture_finish, is_delete, create_person, 
       create_date, update_person, update_date, 
-      line_id, for_order)
+      line_id)
     values (#{no,jdbcType=VARCHAR}, #{sno,jdbcType=VARCHAR}, #{styleNo,jdbcType=VARCHAR}, 
       #{name,jdbcType=VARCHAR}, #{brandId,jdbcType=INTEGER}, #{categoryId,jdbcType=INTEGER}, 
       #{supplierId,jdbcType=INTEGER}, #{sizechartId,jdbcType=INTEGER}, #{color,jdbcType=VARCHAR}, 
       #{picColor,jdbcType=VARCHAR}, #{picVer,jdbcType=INTEGER}, #{costPrice,jdbcType=DECIMAL}, 
-      #{salePrice,jdbcType=DECIMAL}, #{marketPrice,jdbcType=DECIMAL}, #{status,jdbcType=INTEGER}, 
-      #{picFlag,jdbcType=INTEGER}, #{isDelete,jdbcType=BIT}, #{createPerson,jdbcType=VARCHAR}, 
+      #{salePrice,jdbcType=DECIMAL}, #{marketPrice,jdbcType=DECIMAL}, #{status,jdbcType=TINYINT}, 
+      #{isPictureFinish,jdbcType=BIT}, #{isDelete,jdbcType=BIT}, #{createPerson,jdbcType=VARCHAR}, 
       #{createDate,jdbcType=TIMESTAMP}, #{updatePerson,jdbcType=VARCHAR}, #{updateDate,jdbcType=TIMESTAMP}, 
-      #{lineId,jdbcType=BIGINT}, #{forOrder,jdbcType=INTEGER})
+      #{lineId,jdbcType=INTEGER})
   </insert>
   <insert id="insertSelective" parameterType="com.cl.commodity.model.commodity.Commodity" >
     insert into c_commodity
@@ -107,8 +106,8 @@
       <if test="status != null" >
         status,
       </if>
-      <if test="picFlag != null" >
-        pic_flag,
+      <if test="isPictureFinish != null" >
+        is_picture_finish,
       </if>
       <if test="isDelete != null" >
         is_delete,
@@ -127,9 +126,6 @@
       </if>
       <if test="lineId != null" >
         line_id,
-      </if>
-      <if test="forOrder != null" >
-        for_order,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
@@ -176,10 +172,10 @@
         #{marketPrice,jdbcType=DECIMAL},
       </if>
       <if test="status != null" >
-        #{status,jdbcType=INTEGER},
+        #{status,jdbcType=TINYINT},
       </if>
-      <if test="picFlag != null" >
-        #{picFlag,jdbcType=INTEGER},
+      <if test="isPictureFinish != null" >
+        #{isPictureFinish,jdbcType=BIT},
       </if>
       <if test="isDelete != null" >
         #{isDelete,jdbcType=BIT},
@@ -197,10 +193,7 @@
         #{updateDate,jdbcType=TIMESTAMP},
       </if>
       <if test="lineId != null" >
-        #{lineId,jdbcType=BIGINT},
-      </if>
-      <if test="forOrder != null" >
-        #{forOrder,jdbcType=INTEGER},
+        #{lineId,jdbcType=INTEGER},
       </if>
     </trim>
   </insert>
@@ -247,10 +240,10 @@
         market_price = #{marketPrice,jdbcType=DECIMAL},
       </if>
       <if test="status != null" >
-        status = #{status,jdbcType=INTEGER},
+        status = #{status,jdbcType=TINYINT},
       </if>
-      <if test="picFlag != null" >
-        pic_flag = #{picFlag,jdbcType=INTEGER},
+      <if test="isPictureFinish != null" >
+        is_picture_finish = #{isPictureFinish,jdbcType=BIT},
       </if>
       <if test="isDelete != null" >
         is_delete = #{isDelete,jdbcType=BIT},
@@ -268,10 +261,7 @@
         update_date = #{updateDate,jdbcType=TIMESTAMP},
       </if>
       <if test="lineId != null" >
-        line_id = #{lineId,jdbcType=BIGINT},
-      </if>
-      <if test="forOrder != null" >
-        for_order = #{forOrder,jdbcType=INTEGER},
+        line_id = #{lineId,jdbcType=INTEGER},
       </if>
     </set>
     where no = #{no,jdbcType=VARCHAR}
@@ -291,15 +281,14 @@
       cost_price = #{costPrice,jdbcType=DECIMAL},
       sale_price = #{salePrice,jdbcType=DECIMAL},
       market_price = #{marketPrice,jdbcType=DECIMAL},
-      status = #{status,jdbcType=INTEGER},
-      pic_flag = #{picFlag,jdbcType=INTEGER},
+      status = #{status,jdbcType=TINYINT},
+      is_picture_finish = #{isPictureFinish,jdbcType=BIT},
       is_delete = #{isDelete,jdbcType=BIT},
       create_person = #{createPerson,jdbcType=VARCHAR},
       create_date = #{createDate,jdbcType=TIMESTAMP},
       update_person = #{updatePerson,jdbcType=VARCHAR},
       update_date = #{updateDate,jdbcType=TIMESTAMP},
-      line_id = #{lineId,jdbcType=BIGINT},
-      for_order = #{forOrder,jdbcType=INTEGER}
+      line_id = #{lineId,jdbcType=INTEGER}
     where no = #{no,jdbcType=VARCHAR}
   </update>
 </mapper>

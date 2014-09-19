@@ -7,7 +7,7 @@ public class CommodityPicture {
 
     private String commodityNo;
 
-    private String type;
+    private Byte pictureType;
 
     private String createPerson;
 
@@ -33,12 +33,12 @@ public class CommodityPicture {
         this.commodityNo = commodityNo;
     }
 
-    public String getType() {
-        return type;
+    public Byte getPictureType() {
+        return pictureType;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    public void setPictureType(Byte pictureType) {
+        this.pictureType = pictureType;
     }
 
     public String getCreatePerson() {

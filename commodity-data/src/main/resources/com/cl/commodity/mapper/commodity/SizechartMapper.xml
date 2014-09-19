@@ -6,7 +6,7 @@
     <result column="title" property="title" jdbcType="VARCHAR" />
     <result column="content" property="content" jdbcType="VARCHAR" />
     <result column="remark" property="remark" jdbcType="VARCHAR" />
-    <result column="type" property="type" jdbcType="INTEGER" />
+    <result column="sizechart_type_id" property="sizechartTypeId" jdbcType="TINYINT" />
     <result column="is_delete" property="isDelete" jdbcType="BIT" />
     <result column="create_person" property="createPerson" jdbcType="VARCHAR" />
     <result column="create_date" property="createDate" jdbcType="TIMESTAMP" />
@@ -14,8 +14,8 @@
     <result column="update_date" property="updateDate" jdbcType="TIMESTAMP" />
   </resultMap>
   <sql id="Base_Column_List" >
-    id, title, content, remark, type, is_delete, create_person, create_date, update_person, 
-    update_date
+    id, title, content, remark, sizechart_type_id, is_delete, create_person, create_date, 
+    update_person, update_date
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
@@ -29,11 +29,11 @@
   </delete>
   <insert id="insert" parameterType="com.cl.commodity.model.commodity.Sizechart" >
     insert into c_sizechart (id, title, content, 
-      remark, type, is_delete, 
+      remark, sizechart_type_id, is_delete, 
       create_person, create_date, update_person, 
       update_date)
     values (#{id,jdbcType=INTEGER}, #{title,jdbcType=VARCHAR}, #{content,jdbcType=VARCHAR}, 
-      #{remark,jdbcType=VARCHAR}, #{type,jdbcType=INTEGER}, #{isDelete,jdbcType=BIT}, 
+      #{remark,jdbcType=VARCHAR}, #{sizechartTypeId,jdbcType=TINYINT}, #{isDelete,jdbcType=BIT}, 
       #{createPerson,jdbcType=VARCHAR}, #{createDate,jdbcType=TIMESTAMP}, #{updatePerson,jdbcType=VARCHAR}, 
       #{updateDate,jdbcType=TIMESTAMP})
   </insert>
@@ -52,8 +52,8 @@
       <if test="remark != null" >
         remark,
       </if>
-      <if test="type != null" >
-        type,
+      <if test="sizechartTypeId != null" >
+        sizechart_type_id,
       </if>
       <if test="isDelete != null" >
         is_delete,
@@ -84,8 +84,8 @@
       <if test="remark != null" >
         #{remark,jdbcType=VARCHAR},
       </if>
-      <if test="type != null" >
-        #{type,jdbcType=INTEGER},
+      <if test="sizechartTypeId != null" >
+        #{sizechartTypeId,jdbcType=TINYINT},
       </if>
       <if test="isDelete != null" >
         #{isDelete,jdbcType=BIT},
@@ -116,8 +116,8 @@
       <if test="remark != null" >
         remark = #{remark,jdbcType=VARCHAR},
       </if>
-      <if test="type != null" >
-        type = #{type,jdbcType=INTEGER},
+      <if test="sizechartTypeId != null" >
+        sizechart_type_id = #{sizechartTypeId,jdbcType=TINYINT},
       </if>
       <if test="isDelete != null" >
         is_delete = #{isDelete,jdbcType=BIT},
@@ -142,7 +142,7 @@
     set title = #{title,jdbcType=VARCHAR},
       content = #{content,jdbcType=VARCHAR},
       remark = #{remark,jdbcType=VARCHAR},
-      type = #{type,jdbcType=INTEGER},
+      sizechart_type_id = #{sizechartTypeId,jdbcType=TINYINT},
       is_delete = #{isDelete,jdbcType=BIT},
       create_person = #{createPerson,jdbcType=VARCHAR},
       create_date = #{createDate,jdbcType=TIMESTAMP},

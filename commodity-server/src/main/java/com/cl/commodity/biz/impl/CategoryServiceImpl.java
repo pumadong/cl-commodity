@@ -42,7 +42,7 @@ public class CategoryServiceImpl implements ICategoryService {
 	{
 		//生成structure
 		String structName = "";
-		Integer level = 1;
+		Byte level = 1;
 		
 		if(category.getParentId() == 0)
 		{
@@ -51,7 +51,7 @@ public class CategoryServiceImpl implements ICategoryService {
 		} else {
 			Category parentCategory = categoryMapper.selectByPrimaryKey(category.getParentId());
 			structName = parentCategory.getStructName() + "-" + category.getName();
-			level = parentCategory.getLevel()+1;
+			level = (byte) (parentCategory.getLevel()+1);
 		}
 
 		category.setStructName(structName);

@@ -4,14 +4,14 @@
   <resultMap id="BaseResultMap" type="com.cl.commodity.model.commodity.CommodityPicture" >
     <id column="name" property="name" jdbcType="VARCHAR" />
     <result column="commodity_no" property="commodityNo" jdbcType="VARCHAR" />
-    <result column="type" property="type" jdbcType="CHAR" />
+    <result column="picture_type" property="pictureType" jdbcType="TINYINT" />
     <result column="create_person" property="createPerson" jdbcType="VARCHAR" />
     <result column="create_date" property="createDate" jdbcType="TIMESTAMP" />
     <result column="update_person" property="updatePerson" jdbcType="VARCHAR" />
     <result column="update_date" property="updateDate" jdbcType="TIMESTAMP" />
   </resultMap>
   <sql id="Base_Column_List" >
-    name, commodity_no, type, create_person, create_date, update_person, update_date
+    name, commodity_no, picture_type, create_person, create_date, update_person, update_date
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
     select 
@@ -24,10 +24,10 @@
     where name = #{name,jdbcType=VARCHAR}
   </delete>
   <insert id="insert" parameterType="com.cl.commodity.model.commodity.CommodityPicture" >
-    insert into c_commodity_picture (name, commodity_no, type, 
+    insert into c_commodity_picture (name, commodity_no, picture_type, 
       create_person, create_date, update_person, 
       update_date)
-    values (#{name,jdbcType=VARCHAR}, #{commodityNo,jdbcType=VARCHAR}, #{type,jdbcType=CHAR}, 
+    values (#{name,jdbcType=VARCHAR}, #{commodityNo,jdbcType=VARCHAR}, #{pictureType,jdbcType=TINYINT}, 
       #{createPerson,jdbcType=VARCHAR}, #{createDate,jdbcType=TIMESTAMP}, #{updatePerson,jdbcType=VARCHAR}, 
       #{updateDate,jdbcType=TIMESTAMP})
   </insert>
@@ -40,8 +40,8 @@
       <if test="commodityNo != null" >
         commodity_no,
       </if>
-      <if test="type != null" >
-        type,
+      <if test="pictureType != null" >
+        picture_type,
       </if>
       <if test="createPerson != null" >
         create_person,
@@ -63,8 +63,8 @@
       <if test="commodityNo != null" >
         #{commodityNo,jdbcType=VARCHAR},
       </if>
-      <if test="type != null" >
-        #{type,jdbcType=CHAR},
+      <if test="pictureType != null" >
+        #{pictureType,jdbcType=TINYINT},
       </if>
       <if test="createPerson != null" >
         #{createPerson,jdbcType=VARCHAR},
@@ -86,8 +86,8 @@
       <if test="commodityNo != null" >
         commodity_no = #{commodityNo,jdbcType=VARCHAR},
       </if>
-      <if test="type != null" >
-        type = #{type,jdbcType=CHAR},
+      <if test="pictureType != null" >
+        picture_type = #{pictureType,jdbcType=TINYINT},
       </if>
       <if test="createPerson != null" >
         create_person = #{createPerson,jdbcType=VARCHAR},
@@ -107,7 +107,7 @@
   <update id="updateByPrimaryKey" parameterType="com.cl.commodity.model.commodity.CommodityPicture" >
     update c_commodity_picture
     set commodity_no = #{commodityNo,jdbcType=VARCHAR},
-      type = #{type,jdbcType=CHAR},
+      picture_type = #{pictureType,jdbcType=TINYINT},
       create_person = #{createPerson,jdbcType=VARCHAR},
       create_date = #{createDate,jdbcType=TIMESTAMP},
       update_person = #{updatePerson,jdbcType=VARCHAR},

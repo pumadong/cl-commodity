@@ -30,7 +30,7 @@
 #品牌表
 DROP TABLE IF EXISTS `c_brand`;
 CREATE TABLE `c_brand` (
-`id`  int(4) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '自增主键' ,
+`id`  int(11) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '自增主键' ,
 `name`  varchar(50) NOT NULL DEFAULT '' COMMENT '品牌名称' ,
 `english_name`  varchar(50) NOT NULL DEFAULT '' COMMENT '英文名称' ,
 `website`  varchar(200) NOT NULL DEFAULT '' COMMENT '品牌网址' ,
@@ -38,7 +38,7 @@ CREATE TABLE `c_brand` (
 `pic_middle`  varchar(100) NOT NULL DEFAULT '' COMMENT '品牌中图(110*50)' ,
 `pic_small`  varchar(100) NOT NULL DEFAULT '' COMMENT '品牌小图(85*40)' ,
 `letter`  char(1) NOT NULL DEFAULT '' COMMENT '归属哪个字母：A-Z' ,
-`sort_no`  int(4) NOT NULL DEFAULT 0 COMMENT '排序号' ,
+`sort_no`  int(11) NOT NULL DEFAULT 0 COMMENT '排序号' ,
 `is_delete`  tinyint(1) NOT NULL DEFAULT 0 COMMENT '是否删除：1是0否' ,
 `create_person`  varchar(30) NOT NULL DEFAULT '' COMMENT '记录生成人' ,
 `create_date`  datetime NOT NULL COMMENT '记录生成时间' ,
@@ -52,12 +52,12 @@ COMMENT='品牌表'
 #分类表
 DROP TABLE IF EXISTS `c_category`;
 CREATE TABLE `c_category` (
-`id`  int(4) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '自增主键' ,
+`id`  int(11) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '自增主键' ,
 `name`  varchar(50) NOT NULL DEFAULT '' COMMENT '分类名称' ,
 `struct_name`  varchar(200) NOT NULL DEFAULT '' COMMENT '中文名称的分类结构' ,
-`level`  int(4) NOT NULL DEFAULT 1 COMMENT '层级：1,2,3' ,
-`parent_id`  int(4) UNSIGNED NOT NULL COMMENT '父级id' ,
-`sort_no`  int(4) NOT NULL DEFAULT 0 COMMENT '排序号' ,
+`level`  tinyint(4) NOT NULL DEFAULT 1 COMMENT '层级：1,2,3' ,
+`parent_id`  int(11) UNSIGNED NOT NULL COMMENT '父级id' ,
+`sort_no`  int(11) NOT NULL DEFAULT 0 COMMENT '排序号' ,
 `is_delete`  tinyint(1) NOT NULL DEFAULT 0 COMMENT '是否删除：1是0否' ,
 `create_person`  varchar(30) NOT NULL DEFAULT '' COMMENT '记录生成人' ,
 `create_date`  datetime NOT NULL COMMENT '记录生成时间' ,
@@ -72,9 +72,9 @@ COMMENT='分类表'
 #品牌分类关系表
 DROP TABLE IF EXISTS `c_category_brand`;
 CREATE TABLE `c_category_brand` (
-`id`  int(4) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '自增主键' ,
-`category_id`  int(4) UNSIGNED NOT NULL COMMENT '分类ID' ,
-`brand_id`  int(4) UNSIGNED NOT NULL COMMENT '品牌ID' ,
+`id`  int(11) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '自增主键' ,
+`category_id`  int(11) UNSIGNED NOT NULL COMMENT '分类ID' ,
+`brand_id`  int(11) UNSIGNED NOT NULL COMMENT '品牌ID' ,
 `create_person`  varchar(30) NOT NULL DEFAULT '' COMMENT '记录生成人' ,
 `create_date`  datetime NOT NULL COMMENT '记录生成时间' ,
 PRIMARY KEY (`id`) ,
@@ -88,9 +88,9 @@ COMMENT='品牌分类关系表'
 #属性项表
 DROP TABLE IF EXISTS `c_prop_item`;
 CREATE TABLE `c_prop_item` (
-`id`  int(4) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '自增主键' ,
+`id`  int(11) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '自增主键' ,
 `name`  varchar(50) NOT NULL COMMENT '属性项名称' ,
-`sort_no`  int(4) NOT NULL DEFAULT 0 COMMENT '排序号' ,
+`sort_no`  int(11) NOT NULL DEFAULT 0 COMMENT '排序号' ,
 `is_delete`  tinyint(1) NOT NULL DEFAULT 0 COMMENT '是否删除：1是0否' ,
 `create_person`  varchar(30) NOT NULL DEFAULT '' COMMENT '记录生成人' ,
 `create_date`  datetime NOT NULL COMMENT '记录生成时间' ,
@@ -105,10 +105,10 @@ COMMENT='属性项表'
 #属性值表
 DROP TABLE IF EXISTS `c_prop_value`;
 CREATE TABLE `c_prop_value` (
-`id`  int(4) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '自增主键' ,
+`id`  int(11) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '自增主键' ,
 `name`  varchar(50) NOT NULL COMMENT '属性值名称' ,
-`prop_item_id`  int(4) UNSIGNED NOT NULL COMMENT '属性项ID' ,
-`sort_no`  int(4) NOT NULL DEFAULT 0 COMMENT '排序号' ,
+`prop_item_id`  int(11) UNSIGNED NOT NULL COMMENT '属性项ID' ,
+`sort_no`  int(11) NOT NULL DEFAULT 0 COMMENT '排序号' ,
 `is_delete`  tinyint(1) NOT NULL DEFAULT 0 COMMENT '是否删除：1是0否' ,
 `create_person`  varchar(30) NOT NULL DEFAULT '' COMMENT '记录生成人' ,
 `create_date`  datetime NOT NULL COMMENT '记录生成时间' ,
@@ -124,12 +124,12 @@ COMMENT='属性值表'
 #分类属性项关系表
 DROP TABLE IF EXISTS `c_category_prop_item`;
 CREATE TABLE `c_category_prop_item` (
-`id`  int(4) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '自增主键' ,
-`category_id`  int(4) UNSIGNED NOT NULL COMMENT '分类ID' ,
-`prop_item_id`  int(4) UNSIGNED NOT NULL COMMENT '属性项ID' ,
-`is_required`  int(4) NOT NULL DEFAULT 0 COMMENT '是否必填：1是0否' ,
-`is_multiple`  int(4) NOT NULL DEFAULT 0 COMMENT '是否多选：1是0否' ,
-`is_show`  int(4) NOT NULL DEFAULT 0 COMMENT '是否前台显示：1是0否' ,
+`id`  int(11) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '自增主键' ,
+`category_id`  int(11) UNSIGNED NOT NULL COMMENT '分类ID' ,
+`prop_item_id`  int(11) UNSIGNED NOT NULL COMMENT '属性项ID' ,
+`is_required`  tinyint(1) NOT NULL DEFAULT 0 COMMENT '是否必填：1是0否' ,
+`is_multiple`  tinyint(1) NOT NULL DEFAULT 0 COMMENT '是否多选：1是0否' ,
+`is_show`  tinyint(1) NOT NULL DEFAULT 0 COMMENT '是否前台显示：1是0否' ,
 `create_person`  varchar(30) NOT NULL DEFAULT '' COMMENT '记录生成人' ,
 `create_date`  datetime NOT NULL COMMENT '记录生成时间' ,
 `update_person`  varchar(30) NOT NULL DEFAULT '' COMMENT '更新人' ,
@@ -144,9 +144,9 @@ COMMENT='分类属性项关系表'
 #分类属性值关系表
 DROP TABLE IF EXISTS `c_category_prop_value`;
 CREATE TABLE `c_category_prop_value` (
-`id`  int(4) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '自增主键' ,
-`category_id`  int(4) UNSIGNED NOT NULL COMMENT '分类ID' ,
-`prop_value_id`  int(4) UNSIGNED NOT NULL COMMENT '属性值ID' ,
+`id`  int(11) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '自增主键' ,
+`category_id`  int(11) UNSIGNED NOT NULL COMMENT '分类ID' ,
+`prop_value_id`  int(11) UNSIGNED NOT NULL COMMENT '属性值ID' ,
 `create_person`  varchar(30) NOT NULL DEFAULT '' COMMENT '记录生成人' ,
 `create_date`  datetime NOT NULL COMMENT '记录生成时间' ,
 PRIMARY KEY (`id`) ,
@@ -163,24 +163,24 @@ CREATE TABLE `c_commodity` (
 `sno`  varchar(50) NOT NULL COMMENT '供应商款色编码，一般是款号+颜色，供应商方对商品的标记' ,
 `style_no`  varchar(30) NOT NULL COMMENT '供应商款号，用来标记一款商品' ,
 `name`  varchar(200) NOT NULL COMMENT '商品名称' ,
-`brand_id`  int(4) UNSIGNED NOT NULL COMMENT '所属品牌ID' ,
-`category_id`  int(4) UNSIGNED NOT NULL COMMENT '所属分类ID' ,
-`supplier_id`  int(4) UNSIGNED NOT NULL DEFAULT 0 COMMENT '所属供应商ID' ,
-`sizechart_id`  int(4) UNSIGNED NOT NULL DEFAULT 0 COMMENT '所属尺码对照表ID' ,
+`brand_id`  int(11) UNSIGNED NOT NULL COMMENT '所属品牌ID' ,
+`category_id`  int(11) UNSIGNED NOT NULL COMMENT '所属分类ID' ,
+`supplier_id`  int(11) UNSIGNED NOT NULL DEFAULT 0 COMMENT '所属供应商ID' ,
+`sizechart_id`  int(11) UNSIGNED NOT NULL DEFAULT 0 COMMENT '所属尺码对照表ID' ,
 `color`  varchar(50) NOT NULL COMMENT '商品颜色' ,
 `pic_color`  varchar(200) NOT NULL DEFAULT '' COMMENT '商品颜色图' ,
-`pic_ver`  int(4) NOT NULL DEFAULT 0 COMMENT '图片版本号，操作一次，版本+1，方便清理CDN缓存' ,
-`cost_price`  decimal(20,3) NOT NULL DEFAULT 0 COMMENT '成本价' ,
-`sale_price`  decimal(20,3) NOT NULL DEFAULT 0 COMMENT '销售价' ,
-`market_price`  decimal(20,3) NOT NULL DEFAULT 0 COMMENT '市场价' ,
-`status`  int(4) NOT NULL DEFAULT 0 COMMENT '状态：1.新建（待进货）、2.待售（入库后）、3.上架（在售）、4.下架（停售），将来有审核的话用-状态' ,
-`pic_flag`  int(4) NOT NULL DEFAULT 0 COMMENT '图片是否上传完整，一般图片完整就是商编完成的意思：1是0否' ,
+`pic_ver`  int(11) NOT NULL DEFAULT 0 COMMENT '图片版本号，操作一次，版本+1，方便清理CDN缓存' ,
+`cost_price`  decimal(18,2) NOT NULL DEFAULT 0 COMMENT '成本价' ,
+`sale_price`  decimal(18,2) NOT NULL DEFAULT 0 COMMENT '销售价' ,
+`market_price`  decimal(18,2) NOT NULL DEFAULT 0 COMMENT '市场价' ,
+`status`  tinyint(4) NOT NULL DEFAULT 0 COMMENT '状态：1.新建（待进货）、2.待售（入库后）、3.上架（在售）、4.下架（停售），将来有审核的话用-状态' ,
+`is_picture_finish`  tinyint(1) NOT NULL DEFAULT 0 COMMENT '图片是否上传完整，一般图片完整就是商编完成的意思：1是0否' ,
 `is_delete`  tinyint(1) NOT NULL DEFAULT 0 COMMENT '是否删除：1是0否' ,
 `create_person`  varchar(30) NOT NULL DEFAULT '' COMMENT '记录生成人' ,
 `create_date`  datetime NOT NULL COMMENT '记录生成时间' ,
 `update_person`  varchar(30) NOT NULL DEFAULT '' COMMENT '更新人' ,
 `update_date`  datetime NOT NULL COMMENT '更新时间' ,
-`line_id`  bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '自增ID，用于其它系统同步等特殊用途' ,
+`line_id`  int(11) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '自增ID，用于其它系统同步等特殊用途' ,
 PRIMARY KEY (`no`) ,
 INDEX `idx_commodity_supplier_id` (`supplier_id`) USING BTREE ,
 INDEX `idx_commodity_brand_id` (`brand_id`) USING BTREE ,
@@ -214,7 +214,7 @@ DROP TABLE IF EXISTS `c_commodity_picture`;
 CREATE TABLE `c_commodity_picture` (
 `name`  varchar(20) NOT NULL COMMENT '主键，图片名称' ,
 `commodity_no`  varchar(15) NOT NULL COMMENT '商品编号' ,
-`type`  char(1) NOT NULL DEFAULT 0 COMMENT '图片类型' ,
+`picture_type`  tinyint(4) NOT NULL DEFAULT 0 COMMENT '图片类型' ,
 `create_person`  varchar(30) NOT NULL DEFAULT '' COMMENT '记录生成人' ,
 `create_date`  datetime NOT NULL COMMENT '记录生成时间' ,
 `update_person`  varchar(30) NOT NULL DEFAULT '' COMMENT '更新人' ,
@@ -228,9 +228,9 @@ COMMENT='商品图片表'
 #商品属性表
 DROP TABLE IF EXISTS `c_commodity_prop`;
 CREATE TABLE `c_commodity_prop` (
-`id`  int(4) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '自增主键' ,
+`id`  int(11) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '自增主键' ,
 `commodity_no`  varchar(15) NOT NULL COMMENT '商品编号' ,
-`prop_value_id`  int(4) UNSIGNED NOT NULL COMMENT '属性值ID' ,
+`prop_value_id`  int(11) UNSIGNED NOT NULL COMMENT '属性值ID' ,
 `create_person`  varchar(30) NOT NULL DEFAULT '' COMMENT '记录生成人' ,
 `create_date`  datetime NOT NULL COMMENT '记录生成时间' ,
 `update_person`  varchar(30) NOT NULL DEFAULT '' COMMENT '更新人' ,
@@ -244,9 +244,9 @@ COMMENT='商品属性表'
 #商品日志表
 DROP TABLE IF EXISTS `c_commodity_log`;
 CREATE TABLE `c_commodity_log` (
-`id`  int(4) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '自增主键' ,
+`id`  int(11) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '自增主键' ,
 `commodity_no`  varchar(15) NOT NULL COMMENT '商品编号' ,
-`type`  int(4) NOT NULL DEFAULT 0 COMMENT '日志类型' ,
+`log_type_id`  tinyint(4) NOT NULL DEFAULT 0 COMMENT '日志类型ID' ,
 `remark`  varchar(500) NOT NULL DEFAULT '' COMMENT '日志描述' ,
 `create_person`  varchar(30) NOT NULL DEFAULT '' COMMENT '记录生成人' ,
 `create_date`  datetime NOT NULL COMMENT '记录生成时间' ,
@@ -259,11 +259,11 @@ COMMENT='商品日志表'
 #商品调价日志表
 DROP TABLE IF EXISTS `c_commodity_price_log`;
 CREATE TABLE `c_commodity_price_log` (
-`id`  int(4) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '自增主键' ,
+`id`  int(11) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '自增主键' ,
 `commodity_no`  varchar(15) NOT NULL COMMENT '商品编号' ,
-`type`  int(4) NOT NULL COMMENT '日志类型：1成本价2销售价3市场价' ,
-`old_price`  decimal(20,3) NOT NULL COMMENT '原价格' ,
-`new_price`  decimal(20,3) NOT NULL COMMENT '新价格' ,
+`log_type_id`  tinyint(4) NOT NULL COMMENT '日志类型：1成本价2销售价3市场价' ,
+`old_price`  decimal(18,2) NOT NULL COMMENT '原价格' ,
+`new_price`  decimal(18,2) NOT NULL COMMENT '新价格' ,
 `create_person`  varchar(30) NOT NULL DEFAULT '' COMMENT '记录生成人' ,
 `create_date`  datetime NOT NULL COMMENT '记录生成时间' ,
 PRIMARY KEY (`id`) ,
@@ -275,11 +275,11 @@ COMMENT='商品调价日志表'
 #商品尺码对照表
 DROP TABLE IF EXISTS `c_sizechart`;
 CREATE TABLE `c_sizechart` (
-`id`  int(4) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '自增主键' ,
+`id`  int(11) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '自增主键' ,
 `title`  varchar(50) NOT NULL COMMENT '名称' ,
 `content`  varchar(1024) NOT NULL COMMENT '内容,JSON' ,
 `remark`  varchar(100) NOT NULL DEFAULT '' COMMENT '备注' ,
-`type`  int(4) NOT NULL DEFAULT 0 COMMENT '类型：1不限制2限制分类3限制品牌4限制分类和品牌' ,
+`sizechart_type_id`  tinyint(4) NOT NULL DEFAULT 0 COMMENT '类型：1不限制2限制分类3限制品牌4限制分类和品牌' ,
 `is_delete`  tinyint(1) NOT NULL DEFAULT 0 COMMENT '是否删除：1是0否' ,
 `create_person`  varchar(30) NOT NULL DEFAULT '' COMMENT '记录生成人' ,
 `create_date`  datetime NOT NULL COMMENT '记录生成时间' ,
@@ -293,10 +293,10 @@ COMMENT='商品尺码对照表'
 #商品尺码对照表使用限制表-只有存在限制的尺码对照表才会在这个表中有数据
 DROP TABLE IF EXISTS `c_sizechart_category_brand`;
 CREATE TABLE `c_sizechart_category_brand` (
-`id`  int(4) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '自增主键' ,
-`sizechart_id`  int(4) UNSIGNED NOT NULL COMMENT '尺码对照表ID' ,
-`cat_id`  int(4) UNSIGNED NOT NULL DEFAULT 0 COMMENT '限制分类ID,0代表不限制' ,
-`brand_id`  int(4) UNSIGNED NOT NULL DEFAULT 0 COMMENT '限制分类ID,0代表不限制' ,
+`id`  int(11) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '自增主键' ,
+`sizechart_id`  int(11) UNSIGNED NOT NULL COMMENT '尺码对照表ID' ,
+`cat_id`  int(11) UNSIGNED NOT NULL DEFAULT 0 COMMENT '限制分类ID,0代表不限制' ,
+`brand_id`  int(11) UNSIGNED NOT NULL DEFAULT 0 COMMENT '限制分类ID,0代表不限制' ,
 `create_person`  varchar(30) NOT NULL DEFAULT '' COMMENT '记录生成人' ,
 `create_date`  datetime NOT NULL COMMENT '记录生成时间' ,
 PRIMARY KEY (`id`)  ,
@@ -310,11 +310,11 @@ COMMENT='商品尺码对照表使用限制表-只有存在限制的尺码对照�
 #类型状态字典表
 DROP TABLE IF EXISTS `c_dictionary`;
 CREATE TABLE `c_dictionary` (
-`id`  int(4) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '自增主键' ,
+`id`  int(11) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '自增主键' ,
 `group`  varchar(50) NOT NULL COMMENT '状态分组' ,
-`code`  varchar(5) NOT NULL COMMENT '状态代码' ,
+`code`  tinyint(4) NOT NULL COMMENT '状态代码' ,
 `name`  varchar(100) NOT NULL COMMENT '状态名称' ,
-`sort_no`  int(4) NOT NULL DEFAULT 0 COMMENT '排序号' ,
+`sort_no`  tinyint(4) NOT NULL DEFAULT 0 COMMENT '排序号' ,
 `create_person`  varchar(30) NOT NULL DEFAULT '' COMMENT '记录生成人' ,
 `create_date`  datetime NOT NULL COMMENT '记录生成时间' ,
 PRIMARY KEY (`id`) ,

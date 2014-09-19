@@ -9,7 +9,7 @@ public class Category {
 
     private String structName;
 
-    private Integer level;
+    private Byte level;
 
     private Integer parentId;
 
@@ -49,11 +49,11 @@ public class Category {
         this.structName = structName;
     }
 
-    public Integer getLevel() {
+    public Byte getLevel() {
         return level;
     }
 
-    public void setLevel(Integer level) {
+    public void setLevel(Byte level) {
         this.level = level;
     }
 
